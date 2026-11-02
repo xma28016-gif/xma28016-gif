@@ -2,7 +2,7 @@
   "tool": "built-in image_gen",
   "reference": "assets/maxiao.png",
   "transparentBackground": true,
-  "promptConstruction": "Concatenate basePrompt and each pose prompt.",
+  "promptConstruction": "Use fullPrompt when provided; otherwise concatenate basePrompt and pose prompt.",
   "basePrompt": "Use case: identity-preserve / stylized-concept. Create ONE new pose asset for a portfolio card. Reference image is the identity and visual-style master: Ma Xiao, the same young adult East Asian man. Preserve his exact recognizable adult face, facial proportions, clean-shaven appearance, short black cropped haircut, and polished semi-realistic 3D illustration style. Keep the same navy overshirt with two fine ivory vertical-stripe chest panels and an ivory white polo shirt. Do not make a child or chibi. Change the arms, expression slightly, body angle and activity as specified. Composition: SQUARE 1:1 transparent PNG; medium waist-up portrait, complete head, hair, hands, elbows and ALL props visible with 8 percent safe margins; torso reaches lower edge. Subject and props centered, filling most of square; head is about 22 percent of image height. Soft even studio lighting, polished friendly editorial illustration. Background entirely transparent alpha, no scene, no circle, no card, no rectangle, no floor, no glow, no vignette, no lettering, no words, no watermark. Exactly one man, natural anatomically coherent hands. Pose and prop brief: ",
   "poses": [
     {
@@ -53,7 +53,8 @@
     {
       "id": "article-qingyan",
       "file": "assets/poses/article-qingyan.png",
-      "prompt": "A portrait photography enthusiast: holding a modern unbranded smartphone upright in right hand at shoulder level as if framing a picture, left hand lightly supporting right elbow, looking toward phone screen, small smile, torso angled right. No waving."
+      "prompt": "Selecting favorite finished photos: holding three printed landscape photographs naturally in both hands at chest height, looking down with a warm smile.",
+      "fullPrompt": "Use case: identity-preserve / stylized-concept. Create ONE replacement pose for the portfolio article card 'from taking good pictures to wanting to publish'. Use the supplied image ONLY as the identity and visual style reference. Preserve this same young adult East Asian man's exact recognizable adult face, short black cropped haircut, clean-shaven appearance, navy overshirt with ivory fine-stripe chest panels and ivory polo shirt, polished semi-realistic 3D illustrated style. New action: he stands relaxed in a three-quarter LEFT-facing pose, holding THREE small printed photographs fanned naturally in BOTH HANDS at mid-chest, considering and selecting a favorite finished photo. He looks down at the photographs with a warm natural smile. The photos show simple pastel landscape thumbnails only. Both hands and every photograph clearly visible; clean anatomically coherent fingers. Square 1:1 medium waist-up composition, complete head and elbows visible with 8 percent margins, torso reaches bottom edge, subject fills most of canvas, head about 22 percent of height. Absolutely NO phone, NO selfie pose, NO waving, NO camera, no books, no extra people. TRUE transparent alpha background, no backdrop, no circle, no halo, no floor, no border, no text or lettering, no logos. Soft even studio lighting. Only generate the character and the held photographs."
     },
     {
       "id": "article-jimeng",

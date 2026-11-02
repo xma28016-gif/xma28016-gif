@@ -98,7 +98,7 @@
 
 <p>
   <a href="https://mp.weixin.qq.com/s/jkrkeoMxSKqe4Bz1p6mLAQ"><img width="49%" src="./assets/cards/article-ai.svg?v=poses-v2" alt="AI先裁谁？公司省下的人，最后去了哪里" /></a>
-  <a href="https://xma28016-gif.github.io/qingyan-camera-proposal/"><img width="49%" src="./assets/cards/article-qingyan.svg?v=poses-v2" alt="轻颜相机 2.0：从拍得好看，到愿意发布" /></a>
+  <a href="https://xma28016-gif.github.io/qingyan-camera-proposal/"><img width="49%" src="./assets/cards/article-qingyan.svg?v=selected-photos-v3" alt="轻颜相机 2.0：从拍得好看，到愿意发布" /></a>
 </p>
 
 <p>
