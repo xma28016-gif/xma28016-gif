@@ -1,0 +1,84 @@
+{
+  "tool": "built-in image_gen",
+  "reference": "assets/maxiao.png",
+  "transparentBackground": true,
+  "promptConstruction": "Concatenate basePrompt and each pose prompt.",
+  "basePrompt": "Use case: identity-preserve / stylized-concept. Create ONE new pose asset for a portfolio card. Reference image is the identity and visual-style master: Ma Xiao, the same young adult East Asian man. Preserve his exact recognizable adult face, facial proportions, clean-shaven appearance, short black cropped haircut, and polished semi-realistic 3D illustration style. Keep the same navy overshirt with two fine ivory vertical-stripe chest panels and an ivory white polo shirt. Do not make a child or chibi. Change the arms, expression slightly, body angle and activity as specified. Composition: SQUARE 1:1 transparent PNG; medium waist-up portrait, complete head, hair, hands, elbows and ALL props visible with 8 percent safe margins; torso reaches lower edge. Subject and props centered, filling most of square; head is about 22 percent of image height. Soft even studio lighting, polished friendly editorial illustration. Background entirely transparent alpha, no scene, no circle, no card, no rectangle, no floor, no glow, no vignette, no lettering, no words, no watermark. Exactly one man, natural anatomically coherent hands. Pose and prop brief: ",
+  "poses": [
+    {
+      "id": "hotel",
+      "file": "assets/poses/hotel.png",
+      "prompt": "A traveler planning a hotel stay: standing three-quarter left, looking pleasantly down at a folded open pale-blue city map held in both hands at chest height. A small navy travel bag strap on one shoulder. NO waving."
+    },
+    {
+      "id": "jimeng",
+      "file": "assets/poses/jimeng.png",
+      "prompt": "An AI product researcher: body turned slightly right, holding a magnifying glass in right hand at chest height and inspecting a small blank pastel image-preview board held in left hand. Thoughtful engaged expression. No waving."
+    },
+    {
+      "id": "qingyan",
+      "file": "assets/poses/qingyan.png",
+      "prompt": "A camera product reviewer: holding a small lavender mirrorless camera with BOTH hands near chest, checking its controls with an interested smile, body angled left. All camera and hands fully visible. No waving."
+    },
+    {
+      "id": "website",
+      "file": "assets/poses/website.png",
+      "prompt": "A web builder: working on an open silver laptop held at waist/chest height, one hand supporting laptop, other hand typing on keyboard, looking toward viewer with a confident slight smile, torso angled right. Laptop lid simple with no logos. No waving."
+    },
+    {
+      "id": "doc-research",
+      "file": "assets/poses/doc-research.png",
+      "prompt": "A meticulous researcher taking notes: holding a small open pale-blue notebook in left hand and writing in it with a pen in right hand, head slightly lowered toward page, three-quarter left pose. No readable text. No waving."
+    },
+    {
+      "id": "doc-planning",
+      "file": "assets/poses/doc-planning.png",
+      "prompt": "A product planner presenting a roadmap: holding a mint clipboard with a simple unlabelled flowchart of colored boxes, right hand points with a pen to a box on clipboard, looking at viewer, torso angled right. No waving."
+    },
+    {
+      "id": "skill-research",
+      "file": "assets/poses/skill-research.png",
+      "prompt": "An analytical thinker: thoughtful face, right hand lightly touching chin, left arm folded supporting elbow, gazing slightly upward to left, a natural relaxed thinking stance. NO props, NO waving."
+    },
+    {
+      "id": "skill-build",
+      "file": "assets/poses/skill-build.png",
+      "prompt": "An interaction designer: holding a dark drawing tablet in left arm, right hand draws on the tablet with a stylus, torso angled slightly left, gaze to screen with focused friendly expression. Clearly show tablet and stylus. No waving."
+    },
+    {
+      "id": "article-ai",
+      "file": "assets/poses/article-ai.png",
+      "prompt": "An industry writer reading news: holding an open folded newspaper at chest height with both hands, attentive slightly reflective expression looking over its edge toward viewer. Newspaper has abstract column lines, NO actual words or letters. Torso angled left. No waving."
+    },
+    {
+      "id": "article-qingyan",
+      "file": "assets/poses/article-qingyan.png",
+      "prompt": "A portrait photography enthusiast: holding a modern unbranded smartphone upright in right hand at shoulder level as if framing a picture, left hand lightly supporting right elbow, looking toward phone screen, small smile, torso angled right. No waving."
+    },
+    {
+      "id": "article-jimeng",
+      "file": "assets/poses/article-jimeng.png",
+      "prompt": "A creative image editor: holding a small painter color palette in left hand and a short paintbrush in right hand, brush poised near palette, imaginative confident expression, torso angled left. Palette colors restrained lilac mint blue cream. No waving."
+    },
+    {
+      "id": "article-placeholder",
+      "file": "assets/poses/article-placeholder.png",
+      "prompt": "A reader waiting for the next story: seated posture visible only from waist up, gently holding a closed lavender book against chest with both hands, warm relaxed smile looking toward viewer, torso angled right. No waving."
+    },
+    {
+      "id": "doc-placeholder",
+      "file": "assets/poses/doc-placeholder.png",
+      "prompt": "An organizer preparing documents: cradling three pastel document folders in left arm and arranging the top folder with right hand, looking toward the folders, friendly focused expression, torso angled left. Folders have no writing. No waving."
+    },
+    {
+      "id": "skill-placeholder",
+      "file": "assets/poses/skill-placeholder.png",
+      "prompt": "A practical tool builder: holding a compact mint-and-navy toolbox by its handle in left hand near waist and holding a small silver wrench in right hand at chest height, friendly upbeat smile, torso angled slightly right. No waving."
+    },
+    {
+      "id": "contact",
+      "file": "assets/poses/contact.png",
+      "prompt": "An inviting conversation gesture: standing three-quarter left, left hand gently placed over upper chest, right hand extended slightly outward palm up as if welcoming someone into a conversation. Looking directly at viewer with warm smile. NO raised waving hand, no props."
+    }
+  ]
+}

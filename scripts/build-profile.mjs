@@ -6,6 +6,14 @@ const root = new URL('../', import.meta.url);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&apos;' }[c]));
 const avatar = await sharp(fileURLToPath(new URL('../assets/maxiao.png', import.meta.url))).resize({ height: 720 }).png({ palette: true, colours: 192, compressionLevel: 9 }).toBuffer();
 const avatarURI = 'data:image/png;base64,' + avatar.toString('base64');
+const poseManifest = JSON.parse(await fs.readFile(new URL('../assets/poses/manifest.json', import.meta.url)));
+const poseURIs = new Map(await Promise.all(poseManifest.poses.map(async pose => {
+ const image = await sharp(fileURLToPath(new URL('../' + pose.file, import.meta.url)))
+   .resize({ width: 720, height: 720, fit: 'inside', withoutEnlargement: true })
+   .png({ palette: true, colours: 192, compressionLevel: 9 }).toBuffer();
+ return [pose.id, 'data:image/png;base64,' + image.toString('base64')];
+})));
+
 const palettes = { blue:['#e7efff','#acc2ea','#4d73b9','#5f8fee'], mint:['#e6f4ee','#a8ccbc','#4c8c75','#55bda2'], pink:['#fceaf0','#d8aebd','#aa6a86','#ce7ea1'], lilac:['#f0eaff','#bfb0dc','#8065b0','#9874d3'], sand:['#faf0df','#dcc8a2','#aa8753','#d9aa66'] };
 const write = (file,text) => fs.writeFile(new URL(file,root),text);
 function frame(w,h,p,content,title) {
@@ -42,6 +50,8 @@ const cards = [
 ];
 await fs.mkdir(new URL('assets/cards/',root),{recursive:true});
 for (const c of cards) {
+ const poseURI = poseURIs.get(c.id);
+ if (!poseURI) throw new Error("Missing character pose for " + c.id);
  const [bg,line,muted,accent]=palettes[c.p];
  const titleSize = Math.max(...c.title.map(x=>x.length)) > 7 ? 65 : 74;
  const top=c.title.length===1 ? 206 : 173;
@@ -51,13 +61,13 @@ for (const c of cards) {
  const chipsY=c.title.length===1?348:387;
  let x=60;
  const tags=c.tags.map(t=>{const w=t.length*20+30;const tag=`<rect x="${x}" y="${chipsY-25}" width="${w}" height="38" rx="9" fill="${bg}"/><text x="${x+14}" y="${chipsY+1}" fill="${muted}" font-size="20" font-weight="550">${esc(t)}</text>`;x+=w+9;return tag;}).join('');
- const art=`<ellipse cx="985" cy="265" rx="235" ry="220" fill="url(#glow)"/>${prop(c.prop,accent)}<image href="${avatarURI}" x="740" y="66" width="500" height="750"/><text x="92" y="39" fill="${muted}" font-size="22" font-weight="650">${esc(c.type)}</text><path d="M60 ${lineY}q170 13 515-2" fill="none" stroke="#f4a15d" stroke-width="9" stroke-linecap="round"/>${text}<text x="60" y="${subY}" fill="#465668" font-size="28" font-weight="600">${esc(c.sub)}</text>${tags}`;
+ const art=`<ellipse cx="985" cy="265" rx="235" ry="220" fill="url(#glow)"/>${prop(c.prop,accent)}<image href="${poseURI}" x="720" y="60" width="540" height="390" preserveAspectRatio="xMidYMin meet"/><text x="92" y="39" fill="${muted}" font-size="22" font-weight="650">${esc(c.type)}</text><path d="M60 ${lineY}q170 13 515-2" fill="none" stroke="#f4a15d" stroke-width="9" stroke-linecap="round"/>${text}<text x="60" y="${subY}" fill="#465668" font-size="28" font-weight="600">${esc(c.sub)}</text>${tags}`;
  await write('assets/cards/'+c.id+'.svg',frame(1280,460,c.p,art,c.alt));
 }
 const heroArt=`<ellipse cx="1000" cy="260" rx="260" ry="240" fill="url(#glow)"/>${prop('code','#829fdb')}<image href="${avatarURI}" x="820" y="62" width="400" height="600"/><text x="92" y="39" fill="#6d86af" font-size="21" font-weight="650">MX OS / PERSONAL PROFILE</text><text x="65" y="153" fill="#22334d" font-size="21" class="mono" letter-spacing="3">MA XIAO · IDEAS INTO PRACTICE</text><text x="60" y="248" fill="#17212f" font-size="84" font-weight="850" letter-spacing="-4">你好，我是马骁。</text><path d="M64 270q280 12 635-1" fill="none" stroke="#f4a15d" stroke-width="10" stroke-linecap="round"/><text x="65" y="330" fill="#52667e" font-size="30" font-weight="550">产品研究 · 交互实践 · 写作记录</text><text x="65" y="405" fill="#7288ad" font-size="22">点击人物卡片，和我打个招呼 ↗</text>`;
 await write('assets/hello.svg',frame(1280,465,'blue',heroArt,'你好，我是马骁。点击卡片，和我打个招呼'));
 const byID=Object.fromEntries(cards.map(c=>[c.id,c]));
-function row(ids) {return '<p>\n'+ids.map(id=>{const c=byID[id];return `  <a href="${c.url}"><img width="49%" src="./assets/cards/${id}.svg" alt="${esc(c.alt)}" /></a>`;}).join('\n')+'\n</p>\n';}
+function row(ids) {return '<p>\n'+ids.map(id=>{const c=byID[id];return `  <a href="${c.url}"><img width="49%" src="./assets/cards/${id}.svg?v=poses-v2" alt="${esc(c.alt)}" /></a>`;}).join('\n')+'\n</p>\n';}
 const projectRows=profile.works.map(w=>`| [${w.title}](${w.repo}) | ${w.description} | [${w.category==='research'?'阅读报告':'在线体验'}](${w.url}) |`).join('\n');
 const skillSections=profile.skills.map(g=>`### ${g.title}\n\n${g.description}\n\n`+g.items.map(s=>`- **${s.name}** · `+s.projects.map(id=>{const w=profile.works.find(x=>x.id===id);return `[${w.title}](${w.repo})`;}).join(' / ')).join('\n')).join('\n\n');
 const articleTable=profile.notes.map(n=>`| [${n.title}](${n.url}) | ${n.category} | ${n.date||'未提供'} | ${n.source} |`).join('\n');
@@ -149,7 +159,7 @@ ${articleTable}
 
 ## 👋 交流一下
 
-<p><a href="https://xma28016-gif.github.io/home.html#contact"><img width="1000" src="./assets/cards/contact.svg" alt="下一个好想法，从你好开始。点击前往个人网站打个招呼。" /></a></p>
+<p><a href="https://xma28016-gif.github.io/home.html#contact"><img width="1000" src="./assets/cards/contact.svg?v=poses-v2" alt="下一个好想法，从你好开始。点击前往个人网站打个招呼。" /></a></p>
 
 - **个人网站** · [xma28016-gif.github.io](https://xma28016-gif.github.io/)
 - **公众号** · [代码不再冷冰冰](https://mp.weixin.qq.com/s/jkrkeoMxSKqe4Bz1p6mLAQ)
@@ -157,12 +167,12 @@ ${articleTable}
 
 ---
 
-<sub>这里展示公开项目与已确认文章。标为“待补充”的卡片是预留位置；不会将它们计为完成成果。更新于 2026-11-02。</sub>
+<sub>这里展示公开项目与已确认文章。标为“待补充”的卡片是预留位置；不会将它们计为完成成果。更新于 ${profile.reviewedAt}。</sub>
 `;
 await write('README.md',readme);
 await write('PROJECTS.md','# 项目与作品\n\n[← 返回个人主页](./README.md)\n\n'+profile.works.map(w=>`## ${w.title}\n\n${w.description}\n\n${w.tags.map(x=>'`'+x+'`').join(' ')}\n\n`+w.sections.map(s=>'### '+s.title+'\n\n'+s.text).join('\n\n')+`\n\n[完整作品](${w.url}) · [源码仓库](${w.repo})\n`).join('\n---\n\n')+'\n## 全部公开仓库\n\n| 仓库 | 用途 |\n| --- | --- |\n'+profile.works.map(w=>`| [${w.id}](${w.repo}) | ${w.title} |`).join('\n')+'\n| [xma28016-gif](https://github.com/xma28016-gif/xma28016-gif) | GitHub 主页 README、展示卡片与内容索引 |\n');
 await write('SKILLS.md','# 技能与实践\n\n[← 返回个人主页](./README.md)\n\n'+skillSections+'\n\n## 公开 Skills 预留位\n\n待补充。当前尚未收录可公开发布的独立 Skills 工具包；以上为已关联项目的实践技能。\n');
 await write('ARTICLES.md','# 文章归档\n\n[← 返回个人主页](./README.md)\n\n## 已收录\n\n| 文章 | 分类 | 日期 | 来源 |\n| --- | --- | --- | --- |\n'+articleTable+'\n\n## 待补充\n\n| 内容 | 状态 |\n| --- | --- |\n| 公众号历史文章 | 待提供标题与 mp.weixin.qq.com 原文链接 |\n| 其他随笔与长文 | 待提供标题、来源与链接 |\n\n没有取得的信息不补写日期或摘要。\n');
 await write('DOCUMENTS.md','# 知识文档\n\n[← 返回个人主页](./README.md)\n\n## 已收录\n\n- [即梦 AI 实测拆解报告]('+profile.works[1].url+') · 任务路径、截图证据与二次核验。\n- [轻颜相机 2.0 立项方案]('+profile.works[2].url+') · 需求取舍、版本范围与实验验收。\n\n## 待补充\n\n更多研究文档、产品规格与模板尚未提供。此处为预留位置。\n');
-await write('MAINTENANCE.md','# 维护主页\n\n内容在 `profile.json`，卡片布局与 Markdown 生成逻辑在 `scripts/build-profile.mjs`。\n\n```sh\nnpm ci\nnpm run build\n```\n\n头像素材 `assets/maxiao.png` 复用站点主人选择的形象，不重新生成。卡片使用 SVG 文本与矢量图形排版，内嵌同一人物 PNG。没有已确认内容的卡片明确标为待补充。\n\nGitHub 顶部卡片用原生 details/summary 展开 hi，网站保留原有点击动画。\n');
+await write('MAINTENANCE.md','# 维护主页\n\n内容在 `profile.json`，卡片布局与 Markdown 生成逻辑在 `scripts/build-profile.mjs`。\n\n```sh\nnpm ci\nnpm run build\n```\n\n头像素材 `assets/maxiao.png` 为站点主人选择的身份与画风参考，顶部欢迎卡沿用原图。卡片使用 SVG 文本与矢量图形排版，按主题内嵌 `assets/poses/` 中不同姿态的人物 PNG。生成提示词与卡片映射保存在 `assets/poses/manifest.json`。没有已确认内容的卡片明确标为待补充。\n\nGitHub 顶部卡片用原生 details/summary 展开 hi，网站保留原有点击动画。\n');
 console.log(`Generated ${cards.length} cards, hero, README and content indexes. Embedded character: ${avatar.length} bytes.`);

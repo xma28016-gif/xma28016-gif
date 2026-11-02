@@ -23,13 +23,13 @@
 可访问的交互原型、实测报告与个人网站。点击卡片打开完整作品。
 
 <p>
-  <a href="https://xma28016-gif.github.io/ctrip-hotel-subscription/"><img width="49%" src="./assets/cards/hotel.svg" alt="携程酒店订阅体验" /></a>
-  <a href="https://xma28016-gif.github.io/jimeng-product-teardown/"><img width="49%" src="./assets/cards/jimeng.svg" alt="即梦 AI 产品拆解" /></a>
+  <a href="https://xma28016-gif.github.io/ctrip-hotel-subscription/"><img width="49%" src="./assets/cards/hotel.svg?v=poses-v2" alt="携程酒店订阅体验" /></a>
+  <a href="https://xma28016-gif.github.io/jimeng-product-teardown/"><img width="49%" src="./assets/cards/jimeng.svg?v=poses-v2" alt="即梦 AI 产品拆解" /></a>
 </p>
 
 <p>
-  <a href="https://xma28016-gif.github.io/qingyan-camera-proposal/"><img width="49%" src="./assets/cards/qingyan.svg" alt="轻颜相机 2.0 迭代方案" /></a>
-  <a href="https://xma28016-gif.github.io/"><img width="49%" src="./assets/cards/website.svg" alt="MX OS 个人网站" /></a>
+  <a href="https://xma28016-gif.github.io/qingyan-camera-proposal/"><img width="49%" src="./assets/cards/qingyan.svg?v=poses-v2" alt="轻颜相机 2.0 迭代方案" /></a>
+  <a href="https://xma28016-gif.github.io/"><img width="49%" src="./assets/cards/website.svg?v=poses-v2" alt="MX OS 个人网站" /></a>
 </p>
 
 <details>
@@ -51,15 +51,15 @@
 把研究过程、证据和产品方案留成可阅读的文档。
 
 <p>
-  <a href="https://xma28016-gif.github.io/jimeng-product-teardown/"><img width="49%" src="./assets/cards/doc-research.svg" alt="AI 产品评测文档" /></a>
-  <a href="https://xma28016-gif.github.io/qingyan-camera-proposal/"><img width="49%" src="./assets/cards/doc-planning.svg" alt="产品迭代立项文档" /></a>
+  <a href="https://xma28016-gif.github.io/jimeng-product-teardown/"><img width="49%" src="./assets/cards/doc-research.svg?v=poses-v2" alt="AI 产品评测文档" /></a>
+  <a href="https://xma28016-gif.github.io/qingyan-camera-proposal/"><img width="49%" src="./assets/cards/doc-planning.svg?v=poses-v2" alt="产品迭代立项文档" /></a>
 </p>
 
 <details>
 <summary><strong>更多知识文档与预留位置</strong></summary>
 
 <p>
-  <a href="./DOCUMENTS.md#待补充"><img width="49%" src="./assets/cards/doc-placeholder.svg" alt="知识文档预留位，待补充" /></a>
+  <a href="./DOCUMENTS.md#待补充"><img width="49%" src="./assets/cards/doc-placeholder.svg?v=poses-v2" alt="知识文档预留位，待补充" /></a>
 </p>
 
 当前已整理的完整报告见 [知识文档索引](./DOCUMENTS.md)。更多文档尚未提供，预留位置不代表已完成作品。
@@ -71,8 +71,8 @@
 技能关联真实项目，方便从方法找到具体实践。
 
 <p>
-  <a href="./SKILLS.md#产品研究与策划"><img width="49%" src="./assets/cards/skill-research.svg" alt="产品研究与策划技能" /></a>
-  <a href="./SKILLS.md#交互与体验"><img width="49%" src="./assets/cards/skill-build.svg" alt="交互原型与 Web 实践技能" /></a>
+  <a href="./SKILLS.md#产品研究与策划"><img width="49%" src="./assets/cards/skill-research.svg?v=poses-v2" alt="产品研究与策划技能" /></a>
+  <a href="./SKILLS.md#交互与体验"><img width="49%" src="./assets/cards/skill-build.svg?v=poses-v2" alt="交互原型与 Web 实践技能" /></a>
 </p>
 
 **产品研究与策划**　`产品拆解` `AI 产品评测` `需求分析` `用户访谈分析` `版本规划` `实验设计`
@@ -85,7 +85,7 @@
 <summary><strong>技能对应项目与公开 Skills 预留位</strong></summary>
 
 <p>
-  <a href="./SKILLS.md#公开-skills-预留位"><img width="49%" src="./assets/cards/skill-placeholder.svg" alt="公开 Skills 工具包预留位，待补充" /></a>
+  <a href="./SKILLS.md#公开-skills-预留位"><img width="49%" src="./assets/cards/skill-placeholder.svg?v=poses-v2" alt="公开 Skills 工具包预留位，待补充" /></a>
 </p>
 
 [查看全部 16 个技能标签与项目对应关系](./SKILLS.md)。公开 Skills 工具包尚未提供，暂留位置。
@@ -97,13 +97,13 @@
 公众号 **代码不再冷冰冰**，以及我的产品研究与策划报告。
 
 <p>
-  <a href="https://mp.weixin.qq.com/s/jkrkeoMxSKqe4Bz1p6mLAQ"><img width="49%" src="./assets/cards/article-ai.svg" alt="AI先裁谁？公司省下的人，最后去了哪里" /></a>
-  <a href="https://xma28016-gif.github.io/qingyan-camera-proposal/"><img width="49%" src="./assets/cards/article-qingyan.svg" alt="轻颜相机 2.0：从拍得好看，到愿意发布" /></a>
+  <a href="https://mp.weixin.qq.com/s/jkrkeoMxSKqe4Bz1p6mLAQ"><img width="49%" src="./assets/cards/article-ai.svg?v=poses-v2" alt="AI先裁谁？公司省下的人，最后去了哪里" /></a>
+  <a href="https://xma28016-gif.github.io/qingyan-camera-proposal/"><img width="49%" src="./assets/cards/article-qingyan.svg?v=poses-v2" alt="轻颜相机 2.0：从拍得好看，到愿意发布" /></a>
 </p>
 
 <p>
-  <a href="https://xma28016-gif.github.io/jimeng-product-teardown/"><img width="49%" src="./assets/cards/article-jimeng.svg" alt="即梦 AI：从中文海报生成，到受约束改图" /></a>
-  <a href="./ARTICLES.md#待补充"><img width="49%" src="./assets/cards/article-placeholder.svg" alt="更多公众号文章预留位，待补充" /></a>
+  <a href="https://xma28016-gif.github.io/jimeng-product-teardown/"><img width="49%" src="./assets/cards/article-jimeng.svg?v=poses-v2" alt="即梦 AI：从中文海报生成，到受约束改图" /></a>
+  <a href="./ARTICLES.md#待补充"><img width="49%" src="./assets/cards/article-placeholder.svg?v=poses-v2" alt="更多公众号文章预留位，待补充" /></a>
 </p>
 
 <details>
@@ -121,7 +121,7 @@
 
 ## 👋 交流一下
 
-<p><a href="https://xma28016-gif.github.io/home.html#contact"><img width="1000" src="./assets/cards/contact.svg" alt="下一个好想法，从你好开始。点击前往个人网站打个招呼。" /></a></p>
+<p><a href="https://xma28016-gif.github.io/home.html#contact"><img width="1000" src="./assets/cards/contact.svg?v=poses-v2" alt="下一个好想法，从你好开始。点击前往个人网站打个招呼。" /></a></p>
 
 - **个人网站** · [xma28016-gif.github.io](https://xma28016-gif.github.io/)
 - **公众号** · [代码不再冷冰冰](https://mp.weixin.qq.com/s/jkrkeoMxSKqe4Bz1p6mLAQ)
