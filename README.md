@@ -1,15 +1,13 @@
 # 你好，我是马骁 👋
 
 <details>
-<summary><picture><img width="1000" src="./assets/hello.svg" alt="马骁的个人空间：产品研究、交互实践与写作记录。点击和我打招呼。" /></picture></summary>
+<summary><picture><img width="1000" src="./assets/hello.svg?v=clean-greeting-v2" alt="马骁的个人空间：产品研究、交互实践与写作记录。点击和我打招呼。" /></picture></summary>
 
 <h3 align="center">hi 👋，很高兴在这里遇见你。</h3>
 <p align="center">我是马骁，欢迎交流产品研究、交互体验与 AI 探索。</p>
-<p align="center"><a href="https://xma28016-gif.github.io/home.html#contact">进入个人网站，点一下我的卡通形象 ↗</a></p>
 
 </details>
 
-<p align="center"><sub>点击上方人物卡片，说声 hi；再点击一次可以收起。</sub></p>
 <p align="center">🌐 <a href="https://xma28016-gif.github.io/">个人网站</a> · 🧩 <a href="./PROJECTS.md">全部项目</a> · 🧰 <a href="./SKILLS.md">技能与标签</a> · ✍️ <a href="./ARTICLES.md">文章归档</a> · 👋 <a href="https://xma28016-gif.github.io/home.html#contact">联系我</a></p>
 
 我把产品研究、交互原型和 Web 实践整理在这里。从即梦 AI 的实测拆解、轻颜相机的迭代方案，到酒店全景交互，记录从问题、方案到实现的过程。

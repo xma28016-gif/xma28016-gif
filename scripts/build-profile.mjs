@@ -64,7 +64,7 @@ for (const c of cards) {
  const art=`<ellipse cx="985" cy="265" rx="235" ry="220" fill="url(#glow)"/>${prop(c.prop,accent)}<image href="${poseURI}" x="720" y="60" width="540" height="390" preserveAspectRatio="xMidYMin meet"/><text x="92" y="39" fill="${muted}" font-size="22" font-weight="650">${esc(c.type)}</text><path d="M60 ${lineY}q170 13 515-2" fill="none" stroke="#f4a15d" stroke-width="9" stroke-linecap="round"/>${text}<text x="60" y="${subY}" fill="#465668" font-size="28" font-weight="600">${esc(c.sub)}</text>${tags}`;
  await write('assets/cards/'+c.id+'.svg',frame(1280,460,c.p,art,c.alt));
 }
-const heroArt=`<ellipse cx="1000" cy="260" rx="260" ry="240" fill="url(#glow)"/>${prop('code','#829fdb')}<image href="${avatarURI}" x="820" y="62" width="400" height="600"/><text x="92" y="39" fill="#6d86af" font-size="21" font-weight="650">MX OS / PERSONAL PROFILE</text><text x="65" y="153" fill="#22334d" font-size="21" class="mono" letter-spacing="3">MA XIAO · IDEAS INTO PRACTICE</text><text x="60" y="248" fill="#17212f" font-size="84" font-weight="850" letter-spacing="-4">你好，我是马骁。</text><path d="M64 270q280 12 635-1" fill="none" stroke="#f4a15d" stroke-width="10" stroke-linecap="round"/><text x="65" y="330" fill="#52667e" font-size="30" font-weight="550">产品研究 · 交互实践 · 写作记录</text><text x="65" y="405" fill="#7288ad" font-size="22">点击人物卡片，和我打个招呼 ↗</text>`;
+const heroArt=`<ellipse cx="1000" cy="260" rx="260" ry="240" fill="url(#glow)"/>${prop('code','#829fdb')}<image href="${avatarURI}" x="820" y="62" width="400" height="600"/><text x="92" y="39" fill="#6d86af" font-size="21" font-weight="650">MX OS / PERSONAL PROFILE</text><text x="65" y="153" fill="#22334d" font-size="21" class="mono" letter-spacing="3">MA XIAO · IDEAS INTO PRACTICE</text><text x="60" y="248" fill="#17212f" font-size="84" font-weight="850" letter-spacing="-4">你好，我是马骁。</text><path d="M64 270q280 12 635-1" fill="none" stroke="#f4a15d" stroke-width="10" stroke-linecap="round"/><text x="65" y="330" fill="#52667e" font-size="30" font-weight="550">产品研究 · 交互实践 · 写作记录</text>`;
 await write('assets/hello.svg',frame(1280,465,'blue',heroArt,'你好，我是马骁。点击卡片，和我打个招呼'));
 const byID=Object.fromEntries(cards.map(c=>[c.id,c]));
 function row(ids) {return '<p>\n'+ids.map(id=>{const c=byID[id];return `  <a href="${c.url}"><img width="49%" src="./assets/cards/${id}.svg?v=${id === 'article-qingyan' ? 'selected-photos-v3' : 'poses-v2'}" alt="${esc(c.alt)}" /></a>`;}).join('\n')+'\n</p>\n';}
@@ -74,15 +74,13 @@ const articleTable=profile.notes.map(n=>`| [${n.title}](${n.url}) | ${n.category
 const readme=`# 你好，我是马骁 👋
 
 <details>
-<summary><picture><img width="1000" src="./assets/hello.svg" alt="马骁的个人空间：产品研究、交互实践与写作记录。点击和我打招呼。" /></picture></summary>
+<summary><picture><img width="1000" src="./assets/hello.svg?v=clean-greeting-v2" alt="马骁的个人空间：产品研究、交互实践与写作记录。点击和我打招呼。" /></picture></summary>
 
 <h3 align="center">hi 👋，很高兴在这里遇见你。</h3>
 <p align="center">我是马骁，欢迎交流产品研究、交互体验与 AI 探索。</p>
-<p align="center"><a href="https://xma28016-gif.github.io/home.html#contact">进入个人网站，点一下我的卡通形象 ↗</a></p>
 
 </details>
 
-<p align="center"><sub>点击上方人物卡片，说声 hi；再点击一次可以收起。</sub></p>
 <p align="center">🌐 <a href="https://xma28016-gif.github.io/">个人网站</a> · 🧩 <a href="./PROJECTS.md">全部项目</a> · 🧰 <a href="./SKILLS.md">技能与标签</a> · ✍️ <a href="./ARTICLES.md">文章归档</a> · 👋 <a href="https://xma28016-gif.github.io/home.html#contact">联系我</a></p>
 
 我把产品研究、交互原型和 Web 实践整理在这里。从即梦 AI 的实测拆解、轻颜相机的迭代方案，到酒店全景交互，记录从问题、方案到实现的过程。
