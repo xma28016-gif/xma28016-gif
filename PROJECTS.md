@@ -88,6 +88,28 @@
 
 [完整作品](https://xma28016-gif.github.io/) · [源码仓库](https://github.com/xma28016-gif/xma28016-gif.github.io)
 
+---
+
+## 心跳 heartbeat · 薪动 × 涨声
+
+工资与资产双看板：按薪资和作息估算每秒收入，手动管理股票、ETF、基金与黄金；支持小憩计时、金额隐藏和可缩放置顶的 Mac 小窗。
+
+`macOS` `Swift / AppKit` `JavaScript` `MIT 开源`
+
+### 两份看板
+
+薪动：看见每一秒的心动。涨声：听见每一次的涨声。工资按排班估算，资产参考价手动维护，示例曲线不代表真实行情。
+
+### 互动与桌面体验
+
+提供小憩计时、票根、工资设置和持仓管理。Mac 版支持独立小窗、拖动、缩放、置顶与本地保存；浏览器 Demo 无需安装即可体验。
+
+### 版本与边界
+
+采用 MIT 协议开源。v0.2.1 桌面预览版仅支持 Apple 芯片 Mac，尚未完成 Apple 公证，系统可能阻止打开；建议先体验网页版。
+
+[完整作品](https://xma28016-gif.github.io/heartbeat/) · [源码仓库](https://github.com/xma28016-gif/heartbeat) · [在线体验](https://xma28016-gif.github.io/heartbeat/demo/) · [Mac 预览版下载](https://github.com/xma28016-gif/heartbeat/releases/tag/v0.2.1)
+
 ## 全部公开仓库
 
 | 仓库 | 用途 |
@@ -96,4 +118,5 @@
 | [jimeng-product-teardown](https://github.com/xma28016-gif/jimeng-product-teardown) | 即梦 AI 产品拆解 |
 | [qingyan-camera-proposal](https://github.com/xma28016-gif/qingyan-camera-proposal) | 轻颜相机 2.0 迭代方案 |
 | [xma28016-gif.github.io](https://github.com/xma28016-gif/xma28016-gif.github.io) | 个人网站 · MX OS |
+| [heartbeat](https://github.com/xma28016-gif/heartbeat) | 心跳 heartbeat · 薪动 × 涨声 |
 | [xma28016-gif](https://github.com/xma28016-gif/xma28016-gif) | GitHub 主页 README、展示卡片与内容索引 |

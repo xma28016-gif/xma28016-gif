@@ -10,7 +10,7 @@
     "AI 探索",
     "写作与记录"
   ],
-  "reviewedAt": "2026-11-02",
+  "reviewedAt": "2026-11-04",
   "works": [
     {
       "id": "ctrip-hotel-subscription",
@@ -134,6 +134,39 @@
         {
           "title": "完整交付",
           "text": "网站通过 GitHub Pages 发布，字体本地托管；内容集中存放，便于持续维护。"
+        }
+      ]
+    },
+    {
+      "id": "heartbeat",
+      "title": "心跳 heartbeat · 薪动 × 涨声",
+      "category": "app",
+      "label": "桌面应用",
+      "status": "开源预览版",
+      "repo": "https://github.com/xma28016-gif/heartbeat",
+      "url": "https://xma28016-gif.github.io/heartbeat/",
+      "demo": "https://xma28016-gif.github.io/heartbeat/demo/",
+      "download": "https://github.com/xma28016-gif/heartbeat/releases/tag/v0.2.1",
+      "description": "工资与资产双看板：按薪资和作息估算每秒收入，手动管理股票、ETF、基金与黄金；支持小憩计时、金额隐藏和可缩放置顶的 Mac 小窗。",
+      "tags": [
+        "macOS",
+        "Swift / AppKit",
+        "JavaScript",
+        "MIT 开源"
+      ],
+      "updated": "2026-11-04",
+      "sections": [
+        {
+          "title": "两份看板",
+          "text": "薪动：看见每一秒的心动。涨声：听见每一次的涨声。工资按排班估算，资产参考价手动维护，示例曲线不代表真实行情。"
+        },
+        {
+          "title": "互动与桌面体验",
+          "text": "提供小憩计时、票根、工资设置和持仓管理。Mac 版支持独立小窗、拖动、缩放、置顶与本地保存；浏览器 Demo 无需安装即可体验。"
+        },
+        {
+          "title": "版本与边界",
+          "text": "采用 MIT 协议开源。v0.2.1 桌面预览版仅支持 Apple 芯片 Mac，尚未完成 Apple 公证，系统可能阻止打开；建议先体验网页版。"
         }
       ]
     }
@@ -310,5 +343,11 @@
     "name": "代码不再冷冰冰",
     "url": "https://mp.weixin.qq.com/s/jkrkeoMxSKqe4Bz1p6mLAQ",
     "description": "在公众号里，继续记录、思考与分享。"
-  }
+  },
+  "featuredWorks": [
+    "ctrip-hotel-subscription",
+    "heartbeat",
+    "qingyan-camera-proposal",
+    "xma28016-gif.github.io"
+  ]
 }

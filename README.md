@@ -10,7 +10,7 @@
 
 <p align="center">🌐 <a href="https://xma28016-gif.github.io/">个人网站</a> · 🧩 <a href="./PROJECTS.md">全部项目</a> · 🧰 <a href="./SKILLS.md">技能与标签</a> · ✍️ <a href="./ARTICLES.md">文章归档</a> · 👋 <a href="https://xma28016-gif.github.io/home.html#contact">联系我</a></p>
 
-我把产品研究、交互原型和 Web 实践整理在这里。从即梦 AI 的实测拆解、轻颜相机的迭代方案，到酒店全景交互，记录从问题、方案到实现的过程。
+我把产品研究、交互原型和 Web 实践整理在这里。从心跳桌面看板、轻颜相机的迭代方案，到酒店全景交互，记录从问题、方案到实现的过程。
 
 **个人标签**　`产品研究` `交互原型` `AI 探索` `写作与记录`
 
@@ -18,11 +18,11 @@
 
 ## ⭐ 项目与作品
 
-可访问的交互原型、实测报告与个人网站。点击卡片打开完整作品。
+可体验的桌面应用、交互原型、产品方案与个人网站。点击卡片打开完整作品。
 
 <p>
   <a href="https://xma28016-gif.github.io/ctrip-hotel-subscription/"><img width="49%" src="./assets/cards/hotel.svg?v=poses-v2" alt="携程酒店订阅体验" /></a>
-  <a href="https://xma28016-gif.github.io/jimeng-product-teardown/"><img width="49%" src="./assets/cards/jimeng.svg?v=poses-v2" alt="即梦 AI 产品拆解" /></a>
+  <a href="https://xma28016-gif.github.io/heartbeat/"><img width="49%" src="./assets/cards/heartbeat.svg?v=heartbeat-v1" alt="心跳 heartbeat · 薪动 × 涨声" /></a>
 </p>
 
 <p>
@@ -30,13 +30,15 @@
   <a href="https://xma28016-gif.github.io/"><img width="49%" src="./assets/cards/website.svg?v=poses-v2" alt="MX OS 个人网站" /></a>
 </p>
 
+**心跳 heartbeat** · [在线体验](https://xma28016-gif.github.io/heartbeat/demo/) · [Mac 预览版下载](https://github.com/xma28016-gif/heartbeat/releases/tag/v0.2.1) · [开源代码](https://github.com/xma28016-gif/heartbeat)
+
 <details>
 <summary><strong>展开项目说明与源码入口</strong></summary>
 
 | 项目 | 内容 | 作品 |
 | --- | --- | --- |
 | [携程酒店订阅体验](https://github.com/xma28016-gif/ctrip-hotel-subscription) | 以酒店体验画册为载体，串联 360° 全景、客房视频、按晚预订演示与行程助手，让浏览、选择和体验形成完整路径。 | [在线体验](https://xma28016-gif.github.io/ctrip-hotel-subscription/) |
-| [即梦 AI 产品拆解](https://github.com/xma28016-gif/jimeng-product-teardown) | 围绕中文海报生成与受约束改图，拆解任务流程、模型入口、费用口径与产品编排，并把判断关联到取证材料。 | [阅读报告](https://xma28016-gif.github.io/jimeng-product-teardown/) |
+| [心跳 heartbeat · 薪动 × 涨声](https://github.com/xma28016-gif/heartbeat) | 工资与资产双看板：按薪资和作息估算每秒收入，手动管理股票、ETF、基金与黄金；支持小憩计时、金额隐藏和可缩放置顶的 Mac 小窗。 | [在线体验](https://xma28016-gif.github.io/heartbeat/) |
 | [轻颜相机 2.0 迭代方案](https://github.com/xma28016-gif/qingyan-camera-proposal) | 根据访谈材料梳理自然拍照、多人合照与玩法复用需求，形成需求优先级、版本范围、技术验证和实验验收方案。 | [阅读报告](https://xma28016-gif.github.io/qingyan-camera-proposal/) |
 | [个人网站 · MX OS](https://github.com/xma28016-gif/xma28016-gif.github.io) | 用原生 Web 构建的个人空间。从终端欢迎页进入桌面式主页，探索项目目录、实践技能与文章归档。 | [在线体验](https://xma28016-gif.github.io/) |
 
@@ -127,4 +129,4 @@
 
 ---
 
-<sub>这里展示公开项目与已确认文章。标为“待补充”的卡片是预留位置；不会将它们计为完成成果。更新于 2026-11-02。</sub>
+<sub>这里展示公开项目与已确认文章。标为“待补充”的卡片是预留位置；不会将它们计为完成成果。更新于 2026-11-04。</sub>
