@@ -3,6 +3,10 @@ import sharp from 'sharp';
 import { fileURLToPath } from 'node:url';
 const profile = JSON.parse(await fs.readFile(new URL('../profile.json', import.meta.url)));
 const root = new URL('../', import.meta.url);
+const sceneStudio = profile.works.find(w => w.id === 'scene-studio');
+const qingyan = profile.documents.find(w => w.id === 'qingyan-camera-proposal');
+const catalog = [...profile.works, ...profile.documents];
+const oceanURI = 'data:image/jpeg;base64,' + (await fs.readFile(new URL('assets/scene-studio-ocean.jpg',root))).toString('base64');
 const heartbeat = profile.works.find(w => w.id === 'heartbeat');
 const featuredWorks = profile.featuredWorks.map(id => {
  const work = profile.works.find(w => w.id === id);
@@ -40,10 +44,10 @@ function prop(kind,accent) {
 const cards = [
  {id:'hotel',type:'产品 / INTERACTION',title:['酒店全景','订阅体验'],sub:'360° 体验 · 浏览与预订演示',tags:['交互原型','JavaScript','Pannellum'],p:'blue',prop:'hotel',url:profile.works[0].url,alt:profile.works[0].title},
  {id:'heartbeat',pose:'website',type:'应用 / DESKTOP',title:['心跳 heartbeat','薪动 × 涨声'],sub:'秒薪可视化 · 工资与资产双看板',tags:['macOS','在线体验','MIT 开源'],p:'mint',prop:'code',url:heartbeat.url,alt:heartbeat.title},
- {id:'qingyan',type:'策划 / PRODUCT',title:['轻颜相机','2.0 迭代方案'],sub:'从用户需求，到版本取舍',tags:['需求分析','版本规划','实验设计'],p:'pink',prop:'camera',url:profile.works[2].url,alt:profile.works[2].title},
+ {id:'scene-studio',type:'开源 / AI TOOL',title:['Scene Studio','商品场景图'],sub:'上传商品图，生成场景摄影',tags:['AI 生图','语音听写','MIT 开源'],p:'blue',prop:'scene',url:sceneStudio.repo,alt:sceneStudio.title},
  {id:'website',type:'作品 / WEB',title:['MX OS','个人空间'],sub:'项目、技能与文章的统一入口',tags:['HTML / CSS / JS','GitHub Pages'],p:'lilac',prop:'code',url:'https://xma28016-gif.github.io/',alt:'MX OS 个人网站'},
  {id:'doc-research',type:'文档 / DOCUMENT',title:['AI 产品评测','研究笔记'],sub:'即梦 AI · 实测路径与判断依据',tags:['任务记录','截图取证','结论边界'],p:'blue',prop:'book',url:profile.works[1].url,alt:'AI 产品评测文档'},
- {id:'doc-planning',type:'文档 / DOCUMENT',title:['产品迭代','立项方案'],sub:'轻颜相机 · 2.0 评审稿',tags:['需求优先级','实验验收','资源规划'],p:'mint',prop:'book',url:profile.works[2].url,alt:'产品迭代立项文档'},
+ {id:'qingyan',type:'文档 / DOCUMENT',title:['轻颜相机','2.0 迭代方案'],sub:'从用户需求，到版本取舍',tags:['需求分析','版本规划','实验设计'],p:'pink',prop:'camera',url:qingyan.url,alt:qingyan.title},
  {id:'skill-research',type:'技能 / PRACTICE',title:['产品研究','与策划'],sub:'拆解问题，形成可验证的方案',tags:['AI 产品评测','需求分析','版本规划'],p:'mint',prop:'research',url:'./SKILLS.md#产品研究与策划',alt:'产品研究与策划技能'},
  {id:'skill-build',type:'技能 / PRACTICE',title:['交互原型','与 Web 实践'],sub:'把想法，做成可体验的作品',tags:['全景交互','响应式布局','JavaScript'],p:'pink',prop:'code',url:'./SKILLS.md#交互与体验',alt:'交互原型与 Web 实践技能'},
  {id:'article-ai',type:'文章 / WECHAT',title:['AI 先裁谁？'],sub:'公司省下的人，最后去了哪里',tags:['代码不再冷冰冰','AI 与职场'],p:'sand',prop:'book',url:profile.notes[0].url,alt:profile.notes[0].title},
@@ -57,7 +61,7 @@ const cards = [
 await fs.mkdir(new URL('assets/cards/',root),{recursive:true});
 for (const c of cards) {
  const poseURI = poseURIs.get(c.pose || c.id);
- if (!poseURI) throw new Error("Missing character pose for " + c.id);
+ if (!poseURI && c.prop !== 'scene') throw new Error("Missing character pose for " + c.id);
  const [bg,line,muted,accent]=palettes[c.p];
  const titleSize = Math.max(...c.title.map(x=>x.length)) > 7 ? 65 : 74;
  const top=c.title.length===1 ? 206 : 173;
@@ -67,15 +71,18 @@ for (const c of cards) {
  const chipsY=c.title.length===1?348:387;
  let x=60;
  const tags=c.tags.map(t=>{const w=t.length*20+30;const tag=`<rect x="${x}" y="${chipsY-25}" width="${w}" height="38" rx="9" fill="${bg}"/><text x="${x+14}" y="${chipsY+1}" fill="${muted}" font-size="20" font-weight="550">${esc(t)}</text>`;x+=w+9;return tag;}).join('');
- const art=`<ellipse cx="985" cy="265" rx="235" ry="220" fill="url(#glow)"/>${prop(c.prop,accent)}<image href="${poseURI}" x="720" y="60" width="540" height="390" preserveAspectRatio="xMidYMin meet"/><text x="92" y="39" fill="${muted}" font-size="22" font-weight="650">${esc(c.type)}</text><path d="M60 ${lineY}q170 13 515-2" fill="none" stroke="#f4a15d" stroke-width="9" stroke-linecap="round"/>${text}<text x="60" y="${subY}" fill="#465668" font-size="28" font-weight="600">${esc(c.sub)}</text>${tags}`;
+ const illustration = c.prop === 'scene'
+   ? `<defs><clipPath id="scene-screen"><rect x="742" y="90" width="474" height="301" rx="24"/></clipPath></defs><g clip-path="url(#scene-screen)"><image href="${oceanURI}" x="742" y="90" width="474" height="301" preserveAspectRatio="xMidYMid slice"/><rect x="742" y="90" width="474" height="301" fill="#2b4d72" opacity=".27"/><text x="766" y="125" fill="#fff" font-size="16" font-weight="650">Scene Studio</text><text x="979" y="199" fill="#fff" font-size="30" font-weight="550" text-anchor="middle">好物，自有风景</text><rect x="799" y="231" width="360" height="107" rx="17" fill="#deefff" fill-opacity=".29" stroke="#e6f3ff" stroke-opacity=".6"/><path d="M822 253v14m-7-7h14" stroke="#f5f9ff" stroke-width="2" stroke-linecap="round"/><text x="842" y="266" fill="#fff" font-size="14">上传图片</text><path d="M816 286h166" stroke="#e9f5ff" stroke-opacity=".48" stroke-width="3" stroke-linecap="round"/><rect x="1078" y="299" width="65" height="25" rx="12.5" fill="#eef7ff"/><text x="1110" y="316" fill="#345777" font-size="12" text-anchor="middle">生成</text></g><rect x="742" y="90" width="474" height="301" rx="24" fill="none" stroke="${line}" stroke-width="2"/>`
+   : `${prop(c.prop,accent)}<image href="${poseURI}" x="720" y="60" width="540" height="390" preserveAspectRatio="xMidYMin meet"/>`;
+ const art=`<ellipse cx="985" cy="265" rx="235" ry="220" fill="url(#glow)"/>${illustration}<text x="92" y="39" fill="${muted}" font-size="22" font-weight="650">${esc(c.type)}</text><path d="M60 ${lineY}q170 13 515-2" fill="none" stroke="#f4a15d" stroke-width="9" stroke-linecap="round"/>${text}<text x="60" y="${subY}" fill="#465668" font-size="28" font-weight="600">${esc(c.sub)}</text>${tags}`;
  await write('assets/cards/'+c.id+'.svg',frame(1280,460,c.p,art,c.alt));
 }
 const heroArt=`<ellipse cx="1000" cy="260" rx="260" ry="240" fill="url(#glow)"/>${prop('code','#829fdb')}<image href="${avatarURI}" x="820" y="62" width="400" height="600"/><text x="92" y="39" fill="#6d86af" font-size="21" font-weight="650">MX OS / PERSONAL PROFILE</text><text x="65" y="153" fill="#22334d" font-size="21" class="mono" letter-spacing="3">MA XIAO · IDEAS INTO PRACTICE</text><text x="60" y="248" fill="#17212f" font-size="84" font-weight="850" letter-spacing="-4">你好，我是马骁。</text><path d="M64 270q280 12 635-1" fill="none" stroke="#f4a15d" stroke-width="10" stroke-linecap="round"/><text x="65" y="330" fill="#52667e" font-size="30" font-weight="550">产品研究 · 交互实践 · 写作记录</text>`;
 await write('assets/hello.svg',frame(1280,465,'blue',heroArt,'你好，我是马骁。点击卡片，和我打个招呼'));
 const byID=Object.fromEntries(cards.map(c=>[c.id,c]));
-function row(ids) {return '<p>\n'+ids.map(id=>{const c=byID[id];return `  <a href="${c.url}"><img width="49%" src="./assets/cards/${id}.svg?v=${id === 'heartbeat' ? 'heartbeat-v1' : id === 'article-qingyan' ? 'selected-photos-v3' : 'poses-v2'}" alt="${esc(c.alt)}" /></a>`;}).join('\n')+'\n</p>\n';}
+function row(ids) {return '<p>\n'+ids.map(id=>{const c=byID[id];return `  <a href="${c.url}"><img width="49%" src="./assets/cards/${id}.svg?v=${id === 'heartbeat' ? 'heartbeat-v1' : id === 'article-qingyan' ? 'selected-photos-v3' : id === 'qingyan' ? 'document-v1' : id === 'scene-studio' ? 'scene-v1' : 'poses-v2'}" alt="${esc(c.alt)}" /></a>`;}).join('\n')+'\n</p>\n';}
 const projectRows=featuredWorks.map(w=>`| [${w.title}](${w.repo}) | ${w.description} | [${w.category==='research'?'阅读报告':'在线体验'}](${w.url}) |`).join('\n');
-const skillSections=profile.skills.map(g=>`### ${g.title}\n\n${g.description}\n\n`+g.items.map(s=>`- **${s.name}** · `+s.projects.map(id=>{const w=profile.works.find(x=>x.id===id);return `[${w.title}](${w.repo})`;}).join(' / ')).join('\n')).join('\n\n');
+const skillSections=profile.skills.map(g=>`### ${g.title}\n\n${g.description}\n\n`+g.items.map(s=>`- **${s.name}** · `+s.projects.map(id=>{const w=catalog.find(x=>x.id===id);return `[${w.title}](${w.repo})`;}).join(' / ')).join('\n')).join('\n\n');
 const articleTable=profile.notes.map(n=>`| [${n.title}](${n.url}) | ${n.category} | ${n.date||'未提供'} | ${n.source} |`).join('\n');
 const readme=`# 你好，我是马骁 👋
 
@@ -89,7 +96,7 @@ const readme=`# 你好，我是马骁 👋
 
 <p align="center">🌐 <a href="https://xma28016-gif.github.io/">个人网站</a> · 🧩 <a href="./PROJECTS.md">全部项目</a> · 🧰 <a href="./SKILLS.md">技能与标签</a> · ✍️ <a href="./ARTICLES.md">文章归档</a> · 👋 <a href="https://xma28016-gif.github.io/home.html#contact">联系我</a></p>
 
-我把产品研究、交互原型和 Web 实践整理在这里。从心跳桌面看板、轻颜相机的迭代方案，到酒店全景交互，记录从问题、方案到实现的过程。
+${profile.bio}
 
 **个人标签**　\`产品研究\` \`交互原型\` \`AI 探索\` \`写作与记录\`
 
@@ -100,7 +107,9 @@ const readme=`# 你好，我是马骁 👋
 可体验的桌面应用、交互原型、产品方案与个人网站。点击卡片打开完整作品。
 
 ${row(['hotel','heartbeat'])}
-${row(['qingyan','website'])}
+${row(['scene-studio','website'])}
+**Scene Studio** · [开源代码](${sceneStudio.repo}) · [体验入口](${sceneStudio.url})
+
 **心跳 heartbeat** · [在线体验](${heartbeat.demo}) · [Mac 预览版下载](${heartbeat.download}) · [开源代码](${heartbeat.repo})
 
 <details>
@@ -118,7 +127,7 @@ ${projectRows}
 
 把研究过程、证据和产品方案留成可阅读的文档。
 
-${row(['doc-research','doc-planning'])}
+${row(['doc-research','qingyan'])}
 <details>
 <summary><strong>更多知识文档与预留位置</strong></summary>
 
@@ -176,9 +185,9 @@ ${articleTable}
 <sub>这里展示公开项目与已确认文章。标为“待补充”的卡片是预留位置；不会将它们计为完成成果。更新于 ${profile.reviewedAt}。</sub>
 `;
 await write('README.md',readme);
-await write('PROJECTS.md','# 项目与作品\n\n[← 返回个人主页](./README.md)\n\n'+profile.works.map(w=>`## ${w.title}\n\n${w.description}\n\n${w.tags.map(x=>'`'+x+'`').join(' ')}\n\n`+w.sections.map(s=>'### '+s.title+'\n\n'+s.text).join('\n\n')+`\n\n[完整作品](${w.url}) · [源码仓库](${w.repo})${w.demo ? ` · [在线体验](${w.demo})` : ''}${w.download ? ` · [Mac 预览版下载](${w.download})` : ''}\n`).join('\n---\n\n')+'\n## 全部公开仓库\n\n| 仓库 | 用途 |\n| --- | --- |\n'+profile.works.map(w=>`| [${w.id}](${w.repo}) | ${w.title} |`).join('\n')+'\n| [xma28016-gif](https://github.com/xma28016-gif/xma28016-gif) | GitHub 主页 README、展示卡片与内容索引 |\n');
+await write('PROJECTS.md','# 项目与作品\n\n[← 返回个人主页](./README.md)\n\n'+profile.works.map(w=>`## ${w.title}\n\n${w.description}\n\n${w.tags.map(x=>'`'+x+'`').join(' ')}\n\n`+w.sections.map(s=>'### '+s.title+'\n\n'+s.text).join('\n\n')+`\n\n[完整作品](${w.url}) · [源码仓库](${w.repo})${w.demo ? ` · [在线体验](${w.demo})` : ''}${w.download ? ` · [Mac 预览版下载](${w.download})` : ''}\n`).join('\n---\n\n')+'\n## 全部公开仓库\n\n| 仓库 | 用途 |\n| --- | --- |\n'+catalog.map(w=>`| [${w.id}](${w.repo}) | ${w.title} |`).join('\n')+'\n| [xma28016-gif](https://github.com/xma28016-gif/xma28016-gif) | GitHub 主页 README、展示卡片与内容索引 |\n');
 await write('SKILLS.md','# 技能与实践\n\n[← 返回个人主页](./README.md)\n\n'+skillSections+'\n\n## 公开 Skills 预留位\n\n待补充。当前尚未收录可公开发布的独立 Skills 工具包；以上为已关联项目的实践技能。\n');
 await write('ARTICLES.md','# 文章归档\n\n[← 返回个人主页](./README.md)\n\n## 已收录\n\n| 文章 | 分类 | 日期 | 来源 |\n| --- | --- | --- | --- |\n'+articleTable+'\n\n## 待补充\n\n| 内容 | 状态 |\n| --- | --- |\n| 公众号历史文章 | 待提供标题与 mp.weixin.qq.com 原文链接 |\n| 其他随笔与长文 | 待提供标题、来源与链接 |\n\n没有取得的信息不补写日期或摘要。\n');
-await write('DOCUMENTS.md','# 知识文档\n\n[← 返回个人主页](./README.md)\n\n## 已收录\n\n- [即梦 AI 实测拆解报告]('+profile.works[1].url+') · 任务路径、截图证据与二次核验。\n- [轻颜相机 2.0 立项方案]('+profile.works[2].url+') · 需求取舍、版本范围与实验验收。\n\n## 待补充\n\n更多研究文档、产品规格与模板尚未提供。此处为预留位置。\n');
+await write('DOCUMENTS.md','# 知识文档\n\n[← 返回个人主页](./README.md)\n\n## 已收录\n\n- [即梦 AI 实测拆解报告]('+profile.works[1].url+') · 任务路径、截图证据与二次核验。\n- ['+qingyan.title+']('+qingyan.url+') · 需求取舍、版本范围与实验验收。\n\n## '+qingyan.title+'\n\n'+qingyan.description+'\n\n'+qingyan.sections.map(section=>'### '+section.title+'\n\n'+section.text).join('\n\n')+'\n\n[阅读完整文档]('+qingyan.url+') · [文档仓库]('+qingyan.repo+')\n\n## 待补充\n\n更多研究文档、产品规格与模板尚未提供。此处为预留位置。\n');
 await write('MAINTENANCE.md','# 维护主页\n\n内容在 `profile.json`，卡片布局与 Markdown 生成逻辑在 `scripts/build-profile.mjs`。\n\n```sh\nnpm ci\nnpm run build\n```\n\n头像素材 `assets/maxiao.png` 为站点主人选择的身份与画风参考，顶部欢迎卡沿用原图。卡片使用 SVG 文本与矢量图形排版，按主题内嵌 `assets/poses/` 中不同姿态的人物 PNG。生成提示词与卡片映射保存在 `assets/poses/manifest.json`。没有已确认内容的卡片明确标为待补充。\n\nGitHub 顶部卡片用原生 details/summary 展开 hi，网站保留原有点击动画。\n');
 console.log(`Generated ${cards.length} cards, hero, README and content indexes. Embedded character: ${avatar.length} bytes.`);

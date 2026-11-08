@@ -46,25 +46,25 @@
 
 ---
 
-## 轻颜相机 2.0 迭代方案
+## Scene Studio · 商品场景图生成器
 
-根据访谈材料梳理自然拍照、多人合照与玩法复用需求，形成需求优先级、版本范围、技术验证和实验验收方案。
+上传商品图，搭配场景与文字描述生成摄影图。支持语音听写、进度反馈和私有作品库。
 
-`需求分析` `用户访谈分析` `版本规划` `实验设计`
+`AI 生图` `Dify` `Supabase` `MIT 开源`
 
-### 问题与场景
+### 从商品图到场景图
 
-从自然感、清晰度、跨工具修图及多人合照的个体控制出发，梳理用户流程和探索性访谈线索。
+上传商品照片，选择场景、比例和张数，也可以通过文字或语音描述画面。等待时可查看处理阶段与已用时间。
 
-### 方案与取舍
+### 保存与复用
 
-对需求池中的候选需求逐一归类，明确优先级、分阶段范围、技术依赖、降级路线和验收条件。
+登录后可在「我的作品」查看原图和生成图，下载所需图片。
 
-### 完整交付
+### 开源实现
 
-立项评审稿包含指标定义、实验安排、资源与成本框架，以及建议的分阶段推进计划。文档更新于 2026 年 10 月 21 日。
+前端使用原生 Web，服务端接入 Dify Chatflow，Supabase 提供登录与私有存储。仓库提供本地运行、数据库初始化与 Vercel 部署说明。
 
-[完整作品](https://xma28016-gif.github.io/qingyan-camera-proposal/) · [源码仓库](https://github.com/xma28016-gif/qingyan-camera-proposal)
+[完整作品](https://scene-studio-six.vercel.app/prototype.html) · [源码仓库](https://github.com/xma28016-gif/scene-studio)
 
 ---
 
@@ -116,7 +116,8 @@
 | --- | --- |
 | [ctrip-hotel-subscription](https://github.com/xma28016-gif/ctrip-hotel-subscription) | 携程酒店订阅体验 |
 | [jimeng-product-teardown](https://github.com/xma28016-gif/jimeng-product-teardown) | 即梦 AI 产品拆解 |
-| [qingyan-camera-proposal](https://github.com/xma28016-gif/qingyan-camera-proposal) | 轻颜相机 2.0 迭代方案 |
+| [scene-studio](https://github.com/xma28016-gif/scene-studio) | Scene Studio · 商品场景图生成器 |
 | [xma28016-gif.github.io](https://github.com/xma28016-gif/xma28016-gif.github.io) | 个人网站 · MX OS |
 | [heartbeat](https://github.com/xma28016-gif/heartbeat) | 心跳 heartbeat · 薪动 × 涨声 |
+| [qingyan-camera-proposal](https://github.com/xma28016-gif/qingyan-camera-proposal) | 轻颜相机 2.0 迭代方案 |
 | [xma28016-gif](https://github.com/xma28016-gif/xma28016-gif) | GitHub 主页 README、展示卡片与内容索引 |

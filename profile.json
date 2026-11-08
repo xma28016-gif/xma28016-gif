@@ -2,7 +2,7 @@
   "name": "马骁",
   "github": "https://github.com/xma28016-gif",
   "greeting": "从真实的问题出发，把想法变成可以体验的作品。",
-  "bio": "我在这里整理产品研究、交互原型与 Web 实践。从即梦 AI 的任务体验、轻颜相机的迭代方案，到酒店全景交互，留下从问题、方案到实现的探索过程。",
+  "bio": "我在这里整理产品研究、交互原型与 Web 实践。从商品场景图生成器到薪动桌面看板，记录从问题、方案到实现的过程。",
   "email": "",
   "profileTags": [
     "产品研究",
@@ -10,7 +10,7 @@
     "AI 探索",
     "写作与记录"
   ],
-  "reviewedAt": "2026-11-04",
+  "reviewedAt": "2026-11-08",
   "works": [
     {
       "id": "ctrip-hotel-subscription",
@@ -74,33 +74,33 @@
       ]
     },
     {
-      "id": "qingyan-camera-proposal",
-      "title": "轻颜相机 2.0 迭代方案",
-      "category": "research",
-      "label": "产品策划",
-      "status": "立项评审稿",
-      "repo": "https://github.com/xma28016-gif/qingyan-camera-proposal",
-      "url": "https://xma28016-gif.github.io/qingyan-camera-proposal/",
-      "description": "根据访谈材料梳理自然拍照、多人合照与玩法复用需求，形成需求优先级、版本范围、技术验证和实验验收方案。",
+      "id": "scene-studio",
+      "title": "Scene Studio · 商品场景图生成器",
+      "category": "web",
+      "label": "AI 工具",
+      "status": "MIT 开源",
+      "repo": "https://github.com/xma28016-gif/scene-studio",
+      "url": "https://scene-studio-six.vercel.app/prototype.html",
+      "description": "上传商品图，搭配场景与文字描述生成摄影图。支持语音听写、进度反馈和私有作品库。",
       "tags": [
-        "需求分析",
-        "用户访谈分析",
-        "版本规划",
-        "实验设计"
+        "AI 生图",
+        "Dify",
+        "Supabase",
+        "MIT 开源"
       ],
-      "updated": "2026-10-21",
+      "updated": "2026-11-08",
       "sections": [
         {
-          "title": "问题与场景",
-          "text": "从自然感、清晰度、跨工具修图及多人合照的个体控制出发，梳理用户流程和探索性访谈线索。"
+          "title": "从商品图到场景图",
+          "text": "上传商品照片，选择场景、比例和张数，也可以通过文字或语音描述画面。等待时可查看处理阶段与已用时间。"
         },
         {
-          "title": "方案与取舍",
-          "text": "对需求池中的候选需求逐一归类，明确优先级、分阶段范围、技术依赖、降级路线和验收条件。"
+          "title": "保存与复用",
+          "text": "登录后可在「我的作品」查看原图和生成图，下载所需图片。"
         },
         {
-          "title": "完整交付",
-          "text": "立项评审稿包含指标定义、实验安排、资源与成本框架，以及建议的分阶段推进计划。文档更新于 2026 年 10 月 21 日。"
+          "title": "开源实现",
+          "text": "前端使用原生 Web，服务端接入 Dify Chatflow，Supabase 提供登录与私有存储。仓库提供本地运行、数据库初始化与 Vercel 部署说明。"
         }
       ]
     },
@@ -347,7 +347,40 @@
   "featuredWorks": [
     "ctrip-hotel-subscription",
     "heartbeat",
-    "qingyan-camera-proposal",
+    "scene-studio",
     "xma28016-gif.github.io"
+  ],
+  "documents": [
+    {
+      "id": "qingyan-camera-proposal",
+      "title": "轻颜相机 2.0 迭代方案",
+      "category": "research",
+      "label": "产品策划",
+      "status": "立项评审稿",
+      "repo": "https://github.com/xma28016-gif/qingyan-camera-proposal",
+      "url": "https://xma28016-gif.github.io/qingyan-camera-proposal/",
+      "description": "根据访谈材料梳理自然拍照、多人合照与玩法复用需求，形成需求优先级、版本范围、技术验证和实验验收方案。",
+      "tags": [
+        "需求分析",
+        "用户访谈分析",
+        "版本规划",
+        "实验设计"
+      ],
+      "updated": "2026-10-21",
+      "sections": [
+        {
+          "title": "问题与场景",
+          "text": "从自然感、清晰度、跨工具修图及多人合照的个体控制出发，梳理用户流程和探索性访谈线索。"
+        },
+        {
+          "title": "方案与取舍",
+          "text": "对需求池中的候选需求逐一归类，明确优先级、分阶段范围、技术依赖、降级路线和验收条件。"
+        },
+        {
+          "title": "完整交付",
+          "text": "立项评审稿包含指标定义、实验安排、资源与成本框架，以及建议的分阶段推进计划。文档更新于 2026 年 10 月 21 日。"
+        }
+      ]
+    }
   ]
 }

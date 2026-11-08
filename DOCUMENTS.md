@@ -5,7 +5,25 @@
 ## 已收录
 
 - [即梦 AI 实测拆解报告](https://xma28016-gif.github.io/jimeng-product-teardown/) · 任务路径、截图证据与二次核验。
-- [轻颜相机 2.0 立项方案](https://xma28016-gif.github.io/qingyan-camera-proposal/) · 需求取舍、版本范围与实验验收。
+- [轻颜相机 2.0 迭代方案](https://xma28016-gif.github.io/qingyan-camera-proposal/) · 需求取舍、版本范围与实验验收。
+
+## 轻颜相机 2.0 迭代方案
+
+根据访谈材料梳理自然拍照、多人合照与玩法复用需求，形成需求优先级、版本范围、技术验证和实验验收方案。
+
+### 问题与场景
+
+从自然感、清晰度、跨工具修图及多人合照的个体控制出发，梳理用户流程和探索性访谈线索。
+
+### 方案与取舍
+
+对需求池中的候选需求逐一归类，明确优先级、分阶段范围、技术依赖、降级路线和验收条件。
+
+### 完整交付
+
+立项评审稿包含指标定义、实验安排、资源与成本框架，以及建议的分阶段推进计划。文档更新于 2026 年 10 月 21 日。
+
+[阅读完整文档](https://xma28016-gif.github.io/qingyan-camera-proposal/) · [文档仓库](https://github.com/xma28016-gif/qingyan-camera-proposal)
 
 ## 待补充
 
