@@ -6,7 +6,6 @@ const root = new URL('../', import.meta.url);
 const sceneStudio = profile.works.find(w => w.id === 'scene-studio');
 const qingyan = profile.documents.find(w => w.id === 'qingyan-camera-proposal');
 const catalog = [...profile.works, ...profile.documents];
-const oceanURI = 'data:image/jpeg;base64,' + (await fs.readFile(new URL('assets/scene-studio-ocean.jpg',root))).toString('base64');
 const heartbeat = profile.works.find(w => w.id === 'heartbeat');
 const featuredWorks = profile.featuredWorks.map(id => {
  const work = profile.works.find(w => w.id === id);
@@ -37,6 +36,7 @@ function prop(kind,accent) {
  if (kind==='hotel') return base + `<rect x="15" y="80" width="300" height="235" rx="24" fill="#e3edff"/><path d="M45 118h240M65 100v180m65-180v180m65-180v180m65-180v180M40 165h250M40 220h250" fill="none"/><rect x="135" y="245" width="55" height="70" rx="5" fill="#fff"/></g>`;
  if (kind==='camera') return base + `<rect x="5" y="125" width="300" height="190" rx="35" fill="#f1e8ff"/><path d="M65 125l25-45h125l25 45" fill="#f1e8ff"/><circle cx="156" cy="219" r="63" fill="#fff"/><circle cx="156" cy="219" r="41" fill="#d6c8ee"/><circle cx="259" cy="163" r="10" fill="#fff"/></g>`;
  if (kind==='code') return base + `<rect x="5" y="45" width="315" height="245" rx="24" fill="#e4ecff"/><path d="M5 90h315M93 135l-47 43 47 44m128-87 47 43-47 44m-51-103-35 121" fill="none" stroke-width="12" stroke-linecap="round"/></g>`;
+ if (kind==='scene') return base + `<rect x="-2" y="65" width="318" height="255" rx="25" fill="#edf4ff"/><path d="M19 255l77-83 51 51 55-60 92 92v38H19z" fill="#d9e8ff" stroke-linejoin="round"/><circle cx="239" cy="133" r="25" fill="#fff"/></g>`;
  if (kind==='book') return base + `<rect x="35" y="55" width="245" height="275" rx="18" fill="#f1eaf8"/><path d="M80 55v275M118 110h115m-115 40h100m-100 40h110m-110 40h80" fill="none" stroke-width="9" stroke-linecap="round"/><path d="M15 320h285v22H15z" fill="#fff"/></g>`;
  if (kind==='placeholder') return base + `<rect x="20" y="40" width="290" height="275" rx="28" fill="#faf8f4" stroke-dasharray="10 10"/><path d="M165 125v100m-50-50h100" fill="none" stroke-width="11" stroke-linecap="round"/></g>`;
  return base + `<rect x="0" y="30" width="310" height="275" rx="23" fill="#e7f0fc"/><path d="M30 75h250M40 120h170M40 157h215M40 194h150" fill="none" stroke-width="9" stroke-linecap="round"/><circle cx="240" cy="248" r="48" fill="#fff"/><path d="m273 282 40 40" stroke-width="14" stroke-linecap="round"/></g>`;
@@ -61,7 +61,7 @@ const cards = [
 await fs.mkdir(new URL('assets/cards/',root),{recursive:true});
 for (const c of cards) {
  const poseURI = poseURIs.get(c.pose || c.id);
- if (!poseURI && c.prop !== 'scene') throw new Error("Missing character pose for " + c.id);
+ if (!poseURI) throw new Error("Missing character pose for " + c.id);
  const [bg,line,muted,accent]=palettes[c.p];
  const titleSize = Math.max(...c.title.map(x=>x.length)) > 7 ? 65 : 74;
  const top=c.title.length===1 ? 206 : 173;
@@ -71,16 +71,14 @@ for (const c of cards) {
  const chipsY=c.title.length===1?348:387;
  let x=60;
  const tags=c.tags.map(t=>{const w=t.length*20+30;const tag=`<rect x="${x}" y="${chipsY-25}" width="${w}" height="38" rx="9" fill="${bg}"/><text x="${x+14}" y="${chipsY+1}" fill="${muted}" font-size="20" font-weight="550">${esc(t)}</text>`;x+=w+9;return tag;}).join('');
- const illustration = c.prop === 'scene'
-   ? `<defs><clipPath id="scene-screen"><rect x="742" y="90" width="474" height="301" rx="24"/></clipPath></defs><g clip-path="url(#scene-screen)"><image href="${oceanURI}" x="742" y="90" width="474" height="301" preserveAspectRatio="xMidYMid slice"/><rect x="742" y="90" width="474" height="301" fill="#2b4d72" opacity=".27"/><text x="766" y="125" fill="#fff" font-size="16" font-weight="650">Scene Studio</text><text x="979" y="199" fill="#fff" font-size="30" font-weight="550" text-anchor="middle">好物，自有风景</text><rect x="799" y="231" width="360" height="107" rx="17" fill="#deefff" fill-opacity=".29" stroke="#e6f3ff" stroke-opacity=".6"/><path d="M822 253v14m-7-7h14" stroke="#f5f9ff" stroke-width="2" stroke-linecap="round"/><text x="842" y="266" fill="#fff" font-size="14">上传图片</text><path d="M816 286h166" stroke="#e9f5ff" stroke-opacity=".48" stroke-width="3" stroke-linecap="round"/><rect x="1078" y="299" width="65" height="25" rx="12.5" fill="#eef7ff"/><text x="1110" y="316" fill="#345777" font-size="12" text-anchor="middle">生成</text></g><rect x="742" y="90" width="474" height="301" rx="24" fill="none" stroke="${line}" stroke-width="2"/>`
-   : `${prop(c.prop,accent)}<image href="${poseURI}" x="720" y="60" width="540" height="390" preserveAspectRatio="xMidYMin meet"/>`;
+ const illustration = `${prop(c.prop,accent)}<image href="${poseURI}" x="720" y="60" width="540" height="390" preserveAspectRatio="xMidYMin meet"/>`;
  const art=`<ellipse cx="985" cy="265" rx="235" ry="220" fill="url(#glow)"/>${illustration}<text x="92" y="39" fill="${muted}" font-size="22" font-weight="650">${esc(c.type)}</text><path d="M60 ${lineY}q170 13 515-2" fill="none" stroke="#f4a15d" stroke-width="9" stroke-linecap="round"/>${text}<text x="60" y="${subY}" fill="#465668" font-size="28" font-weight="600">${esc(c.sub)}</text>${tags}`;
  await write('assets/cards/'+c.id+'.svg',frame(1280,460,c.p,art,c.alt));
 }
 const heroArt=`<ellipse cx="1000" cy="260" rx="260" ry="240" fill="url(#glow)"/>${prop('code','#829fdb')}<image href="${avatarURI}" x="820" y="62" width="400" height="600"/><text x="92" y="39" fill="#6d86af" font-size="21" font-weight="650">MX OS / PERSONAL PROFILE</text><text x="65" y="153" fill="#22334d" font-size="21" class="mono" letter-spacing="3">MA XIAO · IDEAS INTO PRACTICE</text><text x="60" y="248" fill="#17212f" font-size="84" font-weight="850" letter-spacing="-4">你好，我是马骁。</text><path d="M64 270q280 12 635-1" fill="none" stroke="#f4a15d" stroke-width="10" stroke-linecap="round"/><text x="65" y="330" fill="#52667e" font-size="30" font-weight="550">产品研究 · 交互实践 · 写作记录</text>`;
 await write('assets/hello.svg',frame(1280,465,'blue',heroArt,'你好，我是马骁。点击卡片，和我打个招呼'));
 const byID=Object.fromEntries(cards.map(c=>[c.id,c]));
-function row(ids) {return '<p>\n'+ids.map(id=>{const c=byID[id];return `  <a href="${c.url}"><img width="49%" src="./assets/cards/${id}.svg?v=${id === 'heartbeat' ? 'heartbeat-v1' : id === 'article-qingyan' ? 'selected-photos-v3' : id === 'qingyan' ? 'document-v1' : id === 'scene-studio' ? 'scene-v1' : 'poses-v2'}" alt="${esc(c.alt)}" /></a>`;}).join('\n')+'\n</p>\n';}
+function row(ids) {return '<p>\n'+ids.map(id=>{const c=byID[id];return `  <a href="${c.url}"><img width="49%" src="./assets/cards/${id}.svg?v=${id === 'heartbeat' ? 'heartbeat-v1' : id === 'article-qingyan' ? 'selected-photos-v3' : id === 'qingyan' ? 'document-v1' : id === 'scene-studio' ? 'scene-pose-v2' : 'poses-v2'}" alt="${esc(c.alt)}" /></a>`;}).join('\n')+'\n</p>\n';}
 const projectRows=featuredWorks.map(w=>`| [${w.title}](${w.repo}) | ${w.description} | [${w.category==='research'?'阅读报告':'在线体验'}](${w.url}) |`).join('\n');
 const skillSections=profile.skills.map(g=>`### ${g.title}\n\n${g.description}\n\n`+g.items.map(s=>`- **${s.name}** · `+s.projects.map(id=>{const w=catalog.find(x=>x.id===id);return `[${w.title}](${w.repo})`;}).join(' / ')).join('\n')).join('\n\n');
 const articleTable=profile.notes.map(n=>`| [${n.title}](${n.url}) | ${n.category} | ${n.date||'未提供'} | ${n.source} |`).join('\n');

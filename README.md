@@ -26,7 +26,7 @@
 </p>
 
 <p>
-  <a href="https://github.com/xma28016-gif/scene-studio"><img width="49%" src="./assets/cards/scene-studio.svg?v=scene-v1" alt="Scene Studio · 商品场景图生成器" /></a>
+  <a href="https://github.com/xma28016-gif/scene-studio"><img width="49%" src="./assets/cards/scene-studio.svg?v=scene-pose-v2" alt="Scene Studio · 商品场景图生成器" /></a>
   <a href="https://xma28016-gif.github.io/"><img width="49%" src="./assets/cards/website.svg?v=poses-v2" alt="MX OS 个人网站" /></a>
 </p>
 

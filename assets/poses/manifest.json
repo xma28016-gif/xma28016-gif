@@ -6,6 +6,16 @@
   "basePrompt": "Use case: identity-preserve / stylized-concept. Create ONE new pose asset for a portfolio card. Reference image is the identity and visual-style master: Ma Xiao, the same young adult East Asian man. Preserve his exact recognizable adult face, facial proportions, clean-shaven appearance, short black cropped haircut, and polished semi-realistic 3D illustration style. Keep the same navy overshirt with two fine ivory vertical-stripe chest panels and an ivory white polo shirt. Do not make a child or chibi. Change the arms, expression slightly, body angle and activity as specified. Composition: SQUARE 1:1 transparent PNG; medium waist-up portrait, complete head, hair, hands, elbows and ALL props visible with 8 percent safe margins; torso reaches lower edge. Subject and props centered, filling most of square; head is about 22 percent of image height. Soft even studio lighting, polished friendly editorial illustration. Background entirely transparent alpha, no scene, no circle, no card, no rectangle, no floor, no glow, no vignette, no lettering, no words, no watermark. Exactly one man, natural anatomically coherent hands. Pose and prop brief: ",
   "poses": [
     {
+      "id": "scene-studio",
+      "file": "assets/poses/scene-studio.png",
+      "references": [
+        "assets/maxiao.png",
+        "assets/poses/website.png"
+      ],
+      "prompt": "Raise a frosted blue perfume bottle and present it with the other hand.",
+      "fullPrompt": "Use case: stylized-concept. Generate one new transparent character pose for the Scene Studio product photography card in an established portfolio series. Reference 1 is the master identity and outfit. Reference 2 shows the exact waist-up framing and polished semi-realistic 3D editorial portrait look of a neighboring card; do not copy the laptop or pose. Same recognizable adult East Asian man, same proportions, features, short textured black haircut, clean-shaven, same navy overshirt with two fine ivory vertical stripe chest panels over an ivory polo. Distinct pose: torso turned three-quarters to the viewer's left, eyes looking with quiet interest at a single small rectangular frosted pale-blue glass perfume bottle raised in his right hand just below eye level on the viewer's left; his other forearm low with relaxed open palm under it as if presenting the product. Keep the bottle offset from the face and the face clearly visible, soft natural smile. The perfume bottle has a simple metallic cap and no label. Waist-up portrait reaching lower edge, entire hair, both elbows, both hands and perfume bottle visible, centered with minimal transparent margins and framing matched to the second reference. Soft neutral studio lighting and the same restrained colors, polished material details. Exactly one person. True transparent alpha background, no backdrop, furniture, card, border, effects, text, watermark, extra products, or laptop."
+    },
+    {
       "id": "hotel",
       "file": "assets/poses/hotel.png",
       "prompt": "A traveler planning a hotel stay: standing three-quarter left, looking pleasantly down at a folded open pale-blue city map held in both hands at chest height. A small navy travel bag strap on one shoulder. NO waving."
