@@ -18,10 +18,10 @@
 
 ## ⭐ 项目与作品
 
-可体验的桌面应用、交互原型、产品方案与个人网站。点击卡片打开完整作品。
+知识库问答中台、桌面应用、AI 工具与个人网站。点击卡片查看完整项目。
 
 <p>
-  <a href="https://xma28016-gif.github.io/ctrip-hotel-subscription/"><img width="49%" src="./assets/cards/hotel.svg?v=poses-v2" alt="携程酒店订阅体验" /></a>
+  <a href="https://github.com/xma28016-gif/zhijing-rag"><img width="49%" src="./assets/cards/rag.svg?v=rag-v1" alt="RAG中台" /></a>
   <a href="https://xma28016-gif.github.io/heartbeat/"><img width="49%" src="./assets/cards/heartbeat.svg?v=heartbeat-v1" alt="心跳 heartbeat · 薪动 × 涨声" /></a>
 </p>
 
@@ -39,7 +39,7 @@
 
 | 项目 | 内容 | 作品 |
 | --- | --- | --- |
-| [携程酒店订阅体验](https://github.com/xma28016-gif/ctrip-hotel-subscription) | 以酒店体验画册为载体，串联 360° 全景、客房视频、按晚预订演示与行程助手，让浏览、选择和体验形成完整路径。 | [在线体验](https://xma28016-gif.github.io/ctrip-hotel-subscription/) |
+| [RAG中台](https://github.com/xma28016-gif/zhijing-rag) | 可自行部署的知识库问答中台，串联文档导入、解析与分块预览、混合检索和带引用的问答，提供运行日志与人工评测集。 | [项目说明](https://github.com/xma28016-gif/zhijing-rag) |
 | [心跳 heartbeat · 薪动 × 涨声](https://github.com/xma28016-gif/heartbeat) | 工资与资产双看板：按薪资和作息估算每秒收入，手动管理股票、ETF、基金与黄金；支持小憩计时、金额隐藏和可缩放置顶的 Mac 小窗。 | [在线体验](https://xma28016-gif.github.io/heartbeat/) |
 | [Scene Studio · 商品场景图生成器](https://github.com/xma28016-gif/scene-studio) | 上传商品图，搭配场景与文字描述生成摄影图。支持语音听写、进度反馈和私有作品库。 | [在线体验](https://scene-studio-six.vercel.app/prototype.html) |
 | [个人网站 · MX OS](https://github.com/xma28016-gif/xma28016-gif.github.io) | 用原生 Web 构建的个人空间。从终端欢迎页进入桌面式主页，探索项目目录、实践技能与文章归档。 | [在线体验](https://xma28016-gif.github.io/) |
@@ -131,4 +131,4 @@
 
 ---
 
-<sub>这里展示公开项目与已确认文章。标为“待补充”的卡片是预留位置；不会将它们计为完成成果。更新于 2026-11-08。</sub>
+<sub>这里展示公开项目与已确认文章。标为“待补充”的卡片是预留位置；不会将它们计为完成成果。更新于 2026-11-10。</sub>

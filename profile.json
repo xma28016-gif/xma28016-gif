@@ -10,7 +10,7 @@
     "AI 探索",
     "写作与记录"
   ],
-  "reviewedAt": "2026-11-08",
+  "reviewedAt": "2026-11-10",
   "works": [
     {
       "id": "ctrip-hotel-subscription",
@@ -167,6 +167,37 @@
         {
           "title": "版本与边界",
           "text": "采用 MIT 协议开源。v0.2.1 桌面预览版仅支持 Apple 芯片 Mac，尚未完成 Apple 公证，系统可能阻止打开；建议先体验网页版。"
+        }
+      ]
+    },
+    {
+      "id": "zhijing-rag",
+      "title": "RAG中台",
+      "category": "web",
+      "label": "知识库问答中台",
+      "status": "MIT 开源",
+      "repo": "https://github.com/xma28016-gif/zhijing-rag",
+      "url": "https://github.com/xma28016-gif/zhijing-rag",
+      "description": "可自行部署的知识库问答中台，串联文档导入、解析与分块预览、混合检索和带引用的问答，提供运行日志与人工评测集。",
+      "tags": [
+        "RAG",
+        "混合检索",
+        "Next.js / FastAPI",
+        "MIT 开源"
+      ],
+      "updated": "2026-11-10",
+      "sections": [
+        {
+          "title": "文档入库与知识构建",
+          "text": "导入 PDF、Word、Excel、Markdown、CSV 和图片，检查解析结果、分块与来源位置，再异步构建索引。扫描件和复杂版式可按需配置 DocMind 增强解析。"
+        },
+        {
+          "title": "检索、问答与评测",
+          "text": "支持向量与关键词混合召回、RRF 融合和可选重排，输出流式回答与引用。运行日志保留查询、证据、用量、耗时和错误，可人工收录 Good / Bad Case 并补充参考答案与判定标准。"
+        },
+        {
+          "title": "实现与部署",
+          "text": "前端使用 Next.js、React 和 TypeScript，后端使用 FastAPI、LangChain Core 与 Celery，配合 PostgreSQL、pgvector 和 Redis。仓库提供 Docker Compose 与 macOS 本机运行方式。当前免登录管理界面面向本机或可信测试环境。"
         }
       ]
     }
@@ -345,7 +376,7 @@
     "description": "在公众号里，继续记录、思考与分享。"
   },
   "featuredWorks": [
-    "ctrip-hotel-subscription",
+    "zhijing-rag",
     "heartbeat",
     "scene-studio",
     "xma28016-gif.github.io"

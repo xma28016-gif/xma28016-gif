@@ -110,6 +110,28 @@
 
 [完整作品](https://xma28016-gif.github.io/heartbeat/) · [源码仓库](https://github.com/xma28016-gif/heartbeat) · [在线体验](https://xma28016-gif.github.io/heartbeat/demo/) · [Mac 预览版下载](https://github.com/xma28016-gif/heartbeat/releases/tag/v0.2.1)
 
+---
+
+## RAG中台
+
+可自行部署的知识库问答中台，串联文档导入、解析与分块预览、混合检索和带引用的问答，提供运行日志与人工评测集。
+
+`RAG` `混合检索` `Next.js / FastAPI` `MIT 开源`
+
+### 文档入库与知识构建
+
+导入 PDF、Word、Excel、Markdown、CSV 和图片，检查解析结果、分块与来源位置，再异步构建索引。扫描件和复杂版式可按需配置 DocMind 增强解析。
+
+### 检索、问答与评测
+
+支持向量与关键词混合召回、RRF 融合和可选重排，输出流式回答与引用。运行日志保留查询、证据、用量、耗时和错误，可人工收录 Good / Bad Case 并补充参考答案与判定标准。
+
+### 实现与部署
+
+前端使用 Next.js、React 和 TypeScript，后端使用 FastAPI、LangChain Core 与 Celery，配合 PostgreSQL、pgvector 和 Redis。仓库提供 Docker Compose 与 macOS 本机运行方式。当前免登录管理界面面向本机或可信测试环境。
+
+[完整作品](https://github.com/xma28016-gif/zhijing-rag) · [源码仓库](https://github.com/xma28016-gif/zhijing-rag)
+
 ## 全部公开仓库
 
 | 仓库 | 用途 |
@@ -119,5 +141,6 @@
 | [scene-studio](https://github.com/xma28016-gif/scene-studio) | Scene Studio · 商品场景图生成器 |
 | [xma28016-gif.github.io](https://github.com/xma28016-gif/xma28016-gif.github.io) | 个人网站 · MX OS |
 | [heartbeat](https://github.com/xma28016-gif/heartbeat) | 心跳 heartbeat · 薪动 × 涨声 |
+| [zhijing-rag](https://github.com/xma28016-gif/zhijing-rag) | RAG中台 |
 | [qingyan-camera-proposal](https://github.com/xma28016-gif/qingyan-camera-proposal) | 轻颜相机 2.0 迭代方案 |
 | [xma28016-gif](https://github.com/xma28016-gif/xma28016-gif) | GitHub 主页 README、展示卡片与内容索引 |
