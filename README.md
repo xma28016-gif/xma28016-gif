@@ -1,5 +1,3 @@
-# 你好，我是马骁 👋
-
 <details>
 <summary><picture><img width="1000" src="./assets/hello.svg?v=clean-greeting-v2" alt="马骁的个人空间：产品研究、交互实践与写作记录。点击和我打招呼。" /></picture></summary>
 

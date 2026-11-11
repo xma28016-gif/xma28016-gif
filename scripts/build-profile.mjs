@@ -83,9 +83,7 @@ function row(ids) {return '<p>\n'+ids.map(id=>{const c=byID[id];return `  <a hre
 const projectRows=featuredWorks.map(w=>`| [${w.title}](${w.repo}) | ${w.description} | [${w.url===w.repo?'项目说明':w.category==='research'?'阅读报告':'在线体验'}](${w.url}) |`).join('\n');
 const skillSections=profile.skills.map(g=>`### ${g.title}\n\n${g.description}\n\n`+g.items.map(s=>`- **${s.name}** · `+s.projects.map(id=>{const w=catalog.find(x=>x.id===id);return `[${w.title}](${w.repo})`;}).join(' / ')).join('\n')).join('\n\n');
 const articleTable=profile.notes.map(n=>`| [${n.title}](${n.url}) | ${n.category} | ${n.date||'未提供'} | ${n.source} |`).join('\n');
-const readme=`# 你好，我是马骁 👋
-
-<details>
+const readme=`<details>
 <summary><picture><img width="1000" src="./assets/hello.svg?v=clean-greeting-v2" alt="马骁的个人空间：产品研究、交互实践与写作记录。点击和我打招呼。" /></picture></summary>
 
 <h3 align="center">hi 👋，很高兴在这里遇见你。</h3>
