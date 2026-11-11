@@ -10,7 +10,7 @@
 
 我在这里整理产品研究、交互原型与 Web 实践。从商品场景图生成器到薪动桌面看板，记录从问题、方案到实现的过程。
 
-### AI技能展示
+### 技能
 
 <p>
   <img height="28" src="https://img.shields.io/badge/Requirements%20Analysis-F58025?style=flat-square" alt="Requirements Analysis" />
