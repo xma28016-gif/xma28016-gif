@@ -83,6 +83,19 @@ function row(ids) {return '<p>\n'+ids.map(id=>{const c=byID[id];return `  <a hre
 const projectRows=featuredWorks.map(w=>`| [${w.title}](${w.repo}) | ${w.description} | [${w.url===w.repo?'项目说明':w.category==='research'?'阅读报告':'在线体验'}](${w.url}) |`).join('\n');
 const skillSections=profile.skills.map(g=>`### ${g.title}\n\n${g.description}\n\n`+g.items.map(s=>`- **${s.name}** · `+s.projects.map(id=>{const w=catalog.find(x=>x.id===id);return `[${w.title}](${w.repo})`;}).join(' / ')).join('\n')).join('\n\n');
 const articleTable=profile.notes.map(n=>`| [${n.title}](${n.url}) | ${n.category} | ${n.date||'未提供'} | ${n.source} |`).join('\n');
+function badgeImage(badge) {
+ const message = encodeURIComponent(badge.label.replaceAll('-', '--').replaceAll('_', '__'));
+ const params = new URLSearchParams({ style: 'flat-square' });
+ if (badge.logo) {
+  params.set('logo', badge.logo);
+  params.set('logoColor', badge.logoColor);
+ }
+ const url = `https://img.shields.io/badge/${message}-${badge.color}?${params}`;
+ return `  <img height="28" src="${esc(url)}" alt="${esc(badge.label)}" />`;
+}
+const profileTagGroups = profile.profileTags.map(group =>
+ `### ${group.title}\n\n<p>\n${group.items.map(badgeImage).join('\n')}\n</p>`
+).join('\n\n');
 const readme=`<details>
 <summary><picture><img width="1000" src="./assets/hello.svg?v=clean-greeting-v2" alt="马骁的个人空间：产品研究、交互实践与写作记录。点击和我打招呼。" /></picture></summary>
 
@@ -95,7 +108,7 @@ const readme=`<details>
 
 ${profile.bio}
 
-**个人标签**　\`产品研究\` \`交互原型\` \`AI 探索\` \`写作与记录\`
+${profileTagGroups}
 
 ---
 

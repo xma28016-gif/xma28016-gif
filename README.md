@@ -10,7 +10,26 @@
 
 我在这里整理产品研究、交互原型与 Web 实践。从商品场景图生成器到薪动桌面看板，记录从问题、方案到实现的过程。
 
-**个人标签**　`产品研究` `交互原型` `AI 探索` `写作与记录`
+### 产品
+
+<p>
+  <img height="28" src="https://img.shields.io/badge/Requirements%20Analysis-F58025?style=flat-square" alt="Requirements Analysis" />
+  <img height="28" src="https://img.shields.io/badge/Agent%20Design-8E62BF?style=flat-square" alt="Agent Design" />
+  <img height="28" src="https://img.shields.io/badge/RAG%20Solutions-2A9D8F?style=flat-square" alt="RAG Solutions" />
+  <img height="28" src="https://img.shields.io/badge/Product%20Teardown-EF5B67?style=flat-square" alt="Product Teardown" />
+  <img height="28" src="https://img.shields.io/badge/Prompt%20Engineering-D4A017?style=flat-square" alt="Prompt Engineering" />
+</p>
+
+### 工程
+
+<p>
+  <img height="28" src="https://img.shields.io/badge/React-61DAFB?style=flat-square&amp;logo=react&amp;logoColor=000000" alt="React" />
+  <img height="28" src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&amp;logo=typescript&amp;logoColor=white" alt="TypeScript" />
+  <img height="28" src="https://img.shields.io/badge/Python-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python" />
+  <img height="28" src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&amp;logo=fastapi&amp;logoColor=white" alt="FastAPI" />
+  <img height="28" src="https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square&amp;logo=langchain&amp;logoColor=white" alt="LangChain" />
+  <img height="28" src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&amp;logo=docker&amp;logoColor=white" alt="Docker" />
+</p>
 
 ---
 

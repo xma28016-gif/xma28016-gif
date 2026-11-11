@@ -5,10 +5,72 @@
   "bio": "我在这里整理产品研究、交互原型与 Web 实践。从商品场景图生成器到薪动桌面看板，记录从问题、方案到实现的过程。",
   "email": "",
   "profileTags": [
-    "产品研究",
-    "交互原型",
-    "AI 探索",
-    "写作与记录"
+    {
+      "title": "产品",
+      "items": [
+        {
+          "label": "Requirements Analysis",
+          "color": "F58025"
+        },
+        {
+          "label": "Agent Design",
+          "color": "8E62BF"
+        },
+        {
+          "label": "RAG Solutions",
+          "color": "2A9D8F"
+        },
+        {
+          "label": "Product Teardown",
+          "color": "EF5B67"
+        },
+        {
+          "label": "Prompt Engineering",
+          "color": "D4A017"
+        }
+      ]
+    },
+    {
+      "title": "工程",
+      "items": [
+        {
+          "label": "React",
+          "color": "61DAFB",
+          "logo": "react",
+          "logoColor": "000000"
+        },
+        {
+          "label": "TypeScript",
+          "color": "3178C6",
+          "logo": "typescript",
+          "logoColor": "white"
+        },
+        {
+          "label": "Python",
+          "color": "3776AB",
+          "logo": "python",
+          "logoColor": "white"
+        },
+        {
+          "label": "FastAPI",
+          "color": "009688",
+          "logo": "fastapi",
+          "logoColor": "white"
+        },
+        {
+          "label": "LangChain",
+          "color": "1C3C3C",
+          "logo": "langchain",
+          "logoColor": "white"
+        },
+        {
+          "label": "Docker",
+          "color": "2496ED",
+          "logo": "docker",
+          "logoColor": "white"
+        }
+      ]
+    }
   ],
   "reviewedAt": "2026-11-10",
   "works": [
