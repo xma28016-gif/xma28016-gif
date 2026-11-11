@@ -151,12 +151,6 @@ ${row(['doc-placeholder'])}
 技能关联真实项目，方便从方法找到具体实践。
 
 ${row(['skill-research','skill-build'])}
-**产品研究与策划**　${profile.skills[0].items.map(x=>'`'+x.name+'`').join(' ')}
-
-**交互与体验**　${profile.skills[1].items.map(x=>'`'+x.name+'`').join(' ')}
-
-**技术与工具**　${profile.skills[2].items.map(x=>'`'+x.name+'`').join(' ')}
-
 <details>
 <summary><strong>技能对应项目与公开 Skills 预留位</strong></summary>
 

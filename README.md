@@ -94,12 +94,6 @@
   <a href="./SKILLS.md#交互与体验"><img width="49%" src="./assets/cards/skill-build.svg?v=poses-v2" alt="交互原型与 Web 实践技能" /></a>
 </p>
 
-**产品研究与策划**　`产品拆解` `AI 产品评测` `需求分析` `用户访谈分析` `版本规划` `实验设计`
-
-**交互与体验**　`交互原型` `全景交互` `视频体验` `响应式布局` `键盘可访问性`
-
-**技术与工具**　`HTML` `CSS` `JavaScript` `Canvas` `GitHub Pages`
-
 <details>
 <summary><strong>技能对应项目与公开 Skills 预留位</strong></summary>
 
