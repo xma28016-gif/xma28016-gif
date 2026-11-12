@@ -132,6 +132,28 @@
 
 [完整作品](https://github.com/xma28016-gif/zhijing-rag) · [源码仓库](https://github.com/xma28016-gif/zhijing-rag)
 
+---
+
+## 小小发明家
+
+面向 4–6 岁儿童的 AI 游戏创作桌面应用，通过自然对话、语音输入与图文灵感选择，按现有模板制作小游戏并保存为本地作品。当前公开产品介绍、工作流程与真实界面截图。
+
+`4–6 岁` `AI 游戏创作` `语音输入` `React / Electron`
+
+### 从想法到小游戏
+
+从兴趣和日常聊天出发，逐步形成游戏想法，也可以通过图文灵感库选择玩法。确认制作后，应用校验方案并复用现有游戏模板创建独立作品，显示准备进度后进入游戏。
+
+### 语音与桌面实现
+
+界面使用 React 和 TypeScript，Electron 负责桌面宿主与本地作品。DeepSeek 提供自然对话，火山引擎双向流式 ASR 将语音转入可编辑的输入框；游戏模板根据玩法使用 Canvas 2D 或 Three.js。
+
+### 公开展示与当前阶段
+
+仓库提供产品介绍、工作流程和真实应用截图。本地版本处于内部体验阶段，源码与安装包的公开分发仍待上游授权核对，真实家庭与儿童验收待完成。
+
+[完整作品](https://github.com/xma28016-gif/little-inventor) · [源码仓库](https://github.com/xma28016-gif/little-inventor)
+
 ## 全部公开仓库
 
 | 仓库 | 用途 |
@@ -142,5 +164,6 @@
 | [xma28016-gif.github.io](https://github.com/xma28016-gif/xma28016-gif.github.io) | 个人网站 · MX OS |
 | [heartbeat](https://github.com/xma28016-gif/heartbeat) | 心跳 heartbeat · 薪动 × 涨声 |
 | [zhijing-rag](https://github.com/xma28016-gif/zhijing-rag) | RAG中台 |
+| [little-inventor](https://github.com/xma28016-gif/little-inventor) | 小小发明家 |
 | [qingyan-camera-proposal](https://github.com/xma28016-gif/qingyan-camera-proposal) | 轻颜相机 2.0 迭代方案 |
 | [xma28016-gif](https://github.com/xma28016-gif/xma28016-gif) | GitHub 主页 README、展示卡片与内容索引 |

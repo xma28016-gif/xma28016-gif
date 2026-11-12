@@ -8,6 +8,7 @@ const qingyan = profile.documents.find(w => w.id === 'qingyan-camera-proposal');
 const catalog = [...profile.works, ...profile.documents];
 const heartbeat = profile.works.find(w => w.id === 'heartbeat');
 const rag = profile.works.find(w => w.id === 'zhijing-rag');
+const littleInventor = profile.works.find(w => w.id === 'little-inventor');
 const featuredWorks = profile.featuredWorks.map(id => {
  const work = profile.works.find(w => w.id === id);
  if (!work) throw new Error('Missing featured work: ' + id);
@@ -38,6 +39,7 @@ function prop(kind,accent) {
  if (kind==='camera') return base + `<rect x="5" y="125" width="300" height="190" rx="35" fill="#f1e8ff"/><path d="M65 125l25-45h125l25 45" fill="#f1e8ff"/><circle cx="156" cy="219" r="63" fill="#fff"/><circle cx="156" cy="219" r="41" fill="#d6c8ee"/><circle cx="259" cy="163" r="10" fill="#fff"/></g>`;
  if (kind==='code') return base + `<rect x="5" y="45" width="315" height="245" rx="24" fill="#e4ecff"/><path d="M5 90h315M93 135l-47 43 47 44m128-87 47 43-47 44m-51-103-35 121" fill="none" stroke-width="12" stroke-linecap="round"/></g>`;
  if (kind==='scene') return base + `<rect x="-2" y="65" width="318" height="255" rx="25" fill="#edf4ff"/><path d="M19 255l77-83 51 51 55-60 92 92v38H19z" fill="#d9e8ff" stroke-linejoin="round"/><circle cx="239" cy="133" r="25" fill="#fff"/></g>`;
+ if (kind==='game') return base + `<rect x="0" y="45" width="315" height="255" rx="24" fill="#f0eaff"/><path d="M0 90h315" fill="none"/><path d="M94 145h127c34 0 54 76 46 99-6 18-22 16-42-8l-20-18H110l-20 18c-20 24-36 26-42 8-8-23 12-99 46-99z" fill="#fff"/><path d="M99 172v39m-19-19h38" fill="none" stroke-width="9" stroke-linecap="round"/><circle cx="218" cy="180" r="9" fill="#d9c5f4"/><circle cx="242" cy="203" r="9" fill="#d9c5f4"/></g>`;
  if (kind==='book') return base + `<rect x="35" y="55" width="245" height="275" rx="18" fill="#f1eaf8"/><path d="M80 55v275M118 110h115m-115 40h100m-100 40h110m-110 40h80" fill="none" stroke-width="9" stroke-linecap="round"/><path d="M15 320h285v22H15z" fill="#fff"/></g>`;
  if (kind==='placeholder') return base + `<rect x="20" y="40" width="290" height="275" rx="28" fill="#faf8f4" stroke-dasharray="10 10"/><path d="M165 125v100m-50-50h100" fill="none" stroke-width="11" stroke-linecap="round"/></g>`;
  return base + `<rect x="0" y="30" width="310" height="275" rx="23" fill="#e7f0fc"/><path d="M30 75h250M40 120h170M40 157h215M40 194h150" fill="none" stroke-width="9" stroke-linecap="round"/><circle cx="240" cy="248" r="48" fill="#fff"/><path d="m273 282 40 40" stroke-width="14" stroke-linecap="round"/></g>`;
@@ -46,7 +48,7 @@ const cards = [
  {id:'rag',pose:'doc-planning',type:'中台 / RAG',title:['RAG中台'],sub:'文档入库 · 混合检索 · 引用问答',tags:['知识库问答','混合检索','MIT 开源'],p:'blue',prop:'research',url:rag.repo,alt:rag.title},
  {id:'heartbeat',pose:'website',type:'应用 / DESKTOP',title:['心跳 heartbeat','薪动 × 涨声'],sub:'秒薪可视化 · 工资与资产双看板',tags:['macOS','在线体验','MIT 开源'],p:'mint',prop:'code',url:heartbeat.url,alt:heartbeat.title},
  {id:'scene-studio',type:'开源 / AI TOOL',title:['Scene Studio','商品场景图'],sub:'上传商品图，生成场景摄影',tags:['AI 生图','语音听写','MIT 开源'],p:'blue',prop:'scene',url:sceneStudio.repo,alt:sceneStudio.title},
- {id:'website',type:'作品 / WEB',title:['MX OS','个人空间'],sub:'项目、技能与文章的统一入口',tags:['HTML / CSS / JS','GitHub Pages'],p:'lilac',prop:'code',url:'https://xma28016-gif.github.io/',alt:'MX OS 个人网站'},
+ {id:'little-inventor',pose:'skill-placeholder',type:'产品 / AI GAME',title:['小小发明家','AI 游戏创作'],sub:'自然对话 · 语音输入 · 本地作品',tags:['4–6 岁','AI 游戏创作','项目展示'],p:'lilac',prop:'game',url:littleInventor.repo,alt:littleInventor.title},
  {id:'doc-research',type:'文档 / DOCUMENT',title:['AI 产品评测','研究笔记'],sub:'即梦 AI · 实测路径与判断依据',tags:['任务记录','截图取证','结论边界'],p:'blue',prop:'book',url:profile.works[1].url,alt:'AI 产品评测文档'},
  {id:'qingyan',type:'文档 / DOCUMENT',title:['轻颜相机','2.0 迭代方案'],sub:'从用户需求，到版本取舍',tags:['需求分析','版本规划','实验设计'],p:'pink',prop:'camera',url:qingyan.url,alt:qingyan.title},
  {id:'skill-research',type:'技能 / PRACTICE',title:['产品研究','与策划'],sub:'拆解问题，形成可验证的方案',tags:['AI 产品评测','需求分析','版本规划'],p:'mint',prop:'research',url:'./SKILLS.md#产品研究与策划',alt:'产品研究与策划技能'},
@@ -92,7 +94,7 @@ const heroArt = `<text x="92" y="39" fill="#6d86af" font-size="20" font-weight="
  <text x="64" y="298" fill="#52667e" font-size="27" font-weight="550">产品研究 · 交互实践 · 写作记录</text>`;
 await write('assets/hello.svg', frame(1280, 380, 'blue', heroArt, '你好，我是马骁。点击卡片，和我打个招呼'));
 const byID=Object.fromEntries(cards.map(c=>[c.id,c]));
-function row(ids) {return '<p>\n'+ids.map(id=>{const c=byID[id];return `  <a href="${c.url}"><img width="49%" src="./assets/cards/${id}.svg?v=${id === 'rag' ? 'rag-v1' : id === 'heartbeat' ? 'heartbeat-v1' : id === 'article-qingyan' ? 'selected-photos-v3' : id === 'qingyan' ? 'document-v1' : id === 'scene-studio' ? 'scene-pose-v2' : 'poses-v2'}" alt="${esc(c.alt)}" /></a>`;}).join('\n')+'\n</p>\n';}
+function row(ids) {return '<p>\n'+ids.map(id=>{const c=byID[id];return `  <a href="${c.url}"><img width="49%" src="./assets/cards/${id}.svg?v=${id === 'little-inventor' ? 'inventor-v1' : id === 'rag' ? 'rag-v1' : id === 'heartbeat' ? 'heartbeat-v1' : id === 'article-qingyan' ? 'selected-photos-v3' : id === 'qingyan' ? 'document-v1' : id === 'scene-studio' ? 'scene-pose-v2' : 'poses-v2'}" alt="${esc(c.alt)}" /></a>`;}).join('\n')+'\n</p>\n';}
 const projectRows=featuredWorks.map(w=>`| [${w.title}](${w.repo}) | ${w.description} | [${w.url===w.repo?'项目说明':w.category==='research'?'阅读报告':'在线体验'}](${w.url}) |`).join('\n');
 const skillSections=profile.skills.map(g=>`### ${g.title}\n\n${g.description}\n\n`+g.items.map(s=>`- **${s.name}** · `+s.projects.map(id=>{const w=catalog.find(x=>x.id===id);return `[${w.title}](${w.repo})`;}).join(' / ')).join('\n')).join('\n\n');
 const articleTable=profile.notes.map(n=>`| [${n.title}](${n.url}) | ${n.category} | ${n.date||'未提供'} | ${n.source} |`).join('\n');
@@ -144,10 +146,10 @@ ${profileTagGroups}
 
 ## ⭐ 项目与作品
 
-知识库问答中台、桌面应用、AI 工具与个人网站。点击卡片查看完整项目。
+知识库问答中台、儿童 AI 游戏创作、桌面应用与 AI 工具。点击卡片查看完整项目。
 
-${row(['rag','heartbeat'])}
-${row(['scene-studio','website'])}
+${row(['rag','little-inventor'])}
+${row(['heartbeat','scene-studio'])}
 **Scene Studio** · [开源代码](${sceneStudio.repo}) · [体验入口](${sceneStudio.url})
 
 **心跳 heartbeat** · [在线体验](${heartbeat.demo}) · [Mac 预览版下载](${heartbeat.download}) · [开源代码](${heartbeat.repo})

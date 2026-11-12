@@ -44,16 +44,16 @@
 
 ## ⭐ 项目与作品
 
-知识库问答中台、桌面应用、AI 工具与个人网站。点击卡片查看完整项目。
+知识库问答中台、儿童 AI 游戏创作、桌面应用与 AI 工具。点击卡片查看完整项目。
 
 <p>
   <a href="https://github.com/xma28016-gif/zhijing-rag"><img width="49%" src="./assets/cards/rag.svg?v=rag-v1" alt="RAG中台" /></a>
-  <a href="https://xma28016-gif.github.io/heartbeat/"><img width="49%" src="./assets/cards/heartbeat.svg?v=heartbeat-v1" alt="心跳 heartbeat · 薪动 × 涨声" /></a>
+  <a href="https://github.com/xma28016-gif/little-inventor"><img width="49%" src="./assets/cards/little-inventor.svg?v=inventor-v1" alt="小小发明家" /></a>
 </p>
 
 <p>
+  <a href="https://xma28016-gif.github.io/heartbeat/"><img width="49%" src="./assets/cards/heartbeat.svg?v=heartbeat-v1" alt="心跳 heartbeat · 薪动 × 涨声" /></a>
   <a href="https://github.com/xma28016-gif/scene-studio"><img width="49%" src="./assets/cards/scene-studio.svg?v=scene-pose-v2" alt="Scene Studio · 商品场景图生成器" /></a>
-  <a href="https://xma28016-gif.github.io/"><img width="49%" src="./assets/cards/website.svg?v=poses-v2" alt="MX OS 个人网站" /></a>
 </p>
 
 **Scene Studio** · [开源代码](https://github.com/xma28016-gif/scene-studio) · [体验入口](https://scene-studio-six.vercel.app/prototype.html)
@@ -66,9 +66,9 @@
 | 项目 | 内容 | 作品 |
 | --- | --- | --- |
 | [RAG中台](https://github.com/xma28016-gif/zhijing-rag) | 可自行部署的知识库问答中台，串联文档导入、解析与分块预览、混合检索和带引用的问答，提供运行日志与人工评测集。 | [项目说明](https://github.com/xma28016-gif/zhijing-rag) |
+| [小小发明家](https://github.com/xma28016-gif/little-inventor) | 面向 4–6 岁儿童的 AI 游戏创作桌面应用，通过自然对话、语音输入与图文灵感选择，按现有模板制作小游戏并保存为本地作品。当前公开产品介绍、工作流程与真实界面截图。 | [项目说明](https://github.com/xma28016-gif/little-inventor) |
 | [心跳 heartbeat · 薪动 × 涨声](https://github.com/xma28016-gif/heartbeat) | 工资与资产双看板：按薪资和作息估算每秒收入，手动管理股票、ETF、基金与黄金；支持小憩计时、金额隐藏和可缩放置顶的 Mac 小窗。 | [在线体验](https://xma28016-gif.github.io/heartbeat/) |
 | [Scene Studio · 商品场景图生成器](https://github.com/xma28016-gif/scene-studio) | 上传商品图，搭配场景与文字描述生成摄影图。支持语音听写、进度反馈和私有作品库。 | [在线体验](https://scene-studio-six.vercel.app/prototype.html) |
-| [个人网站 · MX OS](https://github.com/xma28016-gif/xma28016-gif.github.io) | 用原生 Web 构建的个人空间。从终端欢迎页进入桌面式主页，探索项目目录、实践技能与文章归档。 | [在线体验](https://xma28016-gif.github.io/) |
 
 [查看全部项目详情](./PROJECTS.md) · [浏览全部公开仓库](https://github.com/xma28016-gif?tab=repositories)
 
@@ -151,4 +151,4 @@
 
 ---
 
-<sub>这里展示公开项目与已确认文章。标为“待补充”的卡片是预留位置；不会将它们计为完成成果。更新于 2026-11-10。</sub>
+<sub>这里展示公开项目与已确认文章。标为“待补充”的卡片是预留位置；不会将它们计为完成成果。更新于 2026-11-12。</sub>
