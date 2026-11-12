@@ -106,8 +106,6 @@ const readme=`<details>
 
 <p align="center">🌐 <a href="https://xma28016-gif.github.io/">个人网站</a> · 🧩 <a href="./PROJECTS.md">全部项目</a> · 🧰 <a href="./SKILLS.md">技能与标签</a> · ✍️ <a href="./ARTICLES.md">文章归档</a> · 👋 <a href="https://xma28016-gif.github.io/home.html#contact">联系我</a></p>
 
-${profile.bio}
-
 ${profileTagGroups}
 
 ---
