@@ -76,13 +76,45 @@ for (const c of cards) {
  const art=`<ellipse cx="985" cy="265" rx="235" ry="220" fill="url(#glow)"/>${illustration}<text x="92" y="39" fill="${muted}" font-size="22" font-weight="650">${esc(c.type)}</text><path d="M60 ${lineY}q170 13 515-2" fill="none" stroke="#f4a15d" stroke-width="9" stroke-linecap="round"/>${text}<text x="60" y="${subY}" fill="#465668" font-size="28" font-weight="600">${esc(c.sub)}</text>${tags}`;
  await write('assets/cards/'+c.id+'.svg',frame(1280,460,c.p,art,c.alt));
 }
-const heroArt=`<ellipse cx="1000" cy="260" rx="260" ry="240" fill="url(#glow)"/>${prop('code','#829fdb')}<image href="${avatarURI}" x="820" y="62" width="400" height="600"/><text x="92" y="39" fill="#6d86af" font-size="21" font-weight="650">MX OS / PERSONAL PROFILE</text><text x="65" y="153" fill="#22334d" font-size="21" class="mono" letter-spacing="3">MA XIAO · IDEAS INTO PRACTICE</text><text x="60" y="248" fill="#17212f" font-size="84" font-weight="850" letter-spacing="-4">你好，我是马骁。</text><path d="M64 270q280 12 635-1" fill="none" stroke="#f4a15d" stroke-width="10" stroke-linecap="round"/><text x="65" y="330" fill="#52667e" font-size="30" font-weight="550">产品研究 · 交互实践 · 写作记录</text>`;
-await write('assets/hello.svg',frame(1280,465,'blue',heroArt,'你好，我是马骁。点击卡片，和我打个招呼'));
+const heroArt = `<text x="92" y="39" fill="#6d86af" font-size="20" font-weight="650">MX OS / PERSONAL PROFILE</text>
+ <ellipse cx="1020" cy="210" rx="220" ry="200" fill="url(#glow)"/>
+ <g transform="translate(865 96) rotate(7 160 115)" stroke="#b5c8e9" stroke-width="3">
+  <rect width="320" height="230" rx="25" fill="#edf3ff"/>
+  <path d="M0 47h320" fill="none"/>
+  <circle cx="24" cy="24" r="4" fill="#a8bde1" stroke="none"/>
+  <circle cx="40" cy="24" r="4" fill="#c2d0e9" stroke="none"/>
+  <path d="m92 94-37 34 37 34m136-68 37 34-37 34m-51-87-27 109" fill="none" stroke-width="10" stroke-linecap="round" opacity=".6"/>
+ </g>
+ <image href="${avatarURI}" x="850" y="64" width="340" height="510"/>
+ <text x="64" y="126" fill="#637b9b" font-size="18" class="mono" letter-spacing="2.3">MA XIAO · IDEAS INTO PRACTICE</text>
+ <text x="60" y="215" fill="#17212f" font-size="74" font-weight="850" letter-spacing="-3">你好，我是马骁。</text>
+ <path d="M64 237q235 11 590-1" fill="none" stroke="#f4a15d" stroke-width="8" stroke-linecap="round"/>
+ <text x="64" y="298" fill="#52667e" font-size="27" font-weight="550">产品研究 · 交互实践 · 写作记录</text>`;
+await write('assets/hello.svg', frame(1280, 380, 'blue', heroArt, '你好，我是马骁。点击卡片，和我打个招呼'));
 const byID=Object.fromEntries(cards.map(c=>[c.id,c]));
 function row(ids) {return '<p>\n'+ids.map(id=>{const c=byID[id];return `  <a href="${c.url}"><img width="49%" src="./assets/cards/${id}.svg?v=${id === 'rag' ? 'rag-v1' : id === 'heartbeat' ? 'heartbeat-v1' : id === 'article-qingyan' ? 'selected-photos-v3' : id === 'qingyan' ? 'document-v1' : id === 'scene-studio' ? 'scene-pose-v2' : 'poses-v2'}" alt="${esc(c.alt)}" /></a>`;}).join('\n')+'\n</p>\n';}
 const projectRows=featuredWorks.map(w=>`| [${w.title}](${w.repo}) | ${w.description} | [${w.url===w.repo?'项目说明':w.category==='research'?'阅读报告':'在线体验'}](${w.url}) |`).join('\n');
 const skillSections=profile.skills.map(g=>`### ${g.title}\n\n${g.description}\n\n`+g.items.map(s=>`- **${s.name}** · `+s.projects.map(id=>{const w=catalog.find(x=>x.id===id);return `[${w.title}](${w.repo})`;}).join(' / ')).join('\n')).join('\n\n');
 const articleTable=profile.notes.map(n=>`| [${n.title}](${n.url}) | ${n.category} | ${n.date||'未提供'} | ${n.source} |`).join('\n');
+const navigationItems = [
+ { id: 'website', label: '个人网站', url: 'https://xma28016-gif.github.io/', icon: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c5 5 5 13 0 18-5-5-5-13 0-18z"/>' },
+ { id: 'projects', label: '全部项目', url: './PROJECTS.md', icon: '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>' },
+ { id: 'skills', label: '技能标签', url: './SKILLS.md', icon: '<path d="m3 4 9-1 9 9-9 9-9-9z"/><circle cx="8" cy="8" r="1.5"/>' },
+ { id: 'articles', label: '文章归档', url: './ARTICLES.md', icon: '<path d="M5 3h10l4 4v14H5zM14 3v5h5M8 12h8M8 16h6"/>' },
+ { id: 'contact', label: '联系我', url: 'https://xma28016-gif.github.io/home.html#contact', icon: '<path d="M4 4h16v12H9l-5 5z"/><path d="M8 8h8M8 12h5"/>' }
+];
+await fs.mkdir(new URL('assets/navigation/', root), { recursive: true });
+for (const item of navigationItems) {
+ const primary = item.id === 'website';
+ const fill = primary ? '#edf3ff' : '#fbfcff';
+ const border = primary ? '#b8cbed' : '#d9e2f0';
+ const ink = primary ? '#365f9d' : '#536986';
+ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="186" height="56" viewBox="0 0 186 56" role="img" aria-label="${esc(item.label)}"><title>${esc(item.label)}</title><rect x="1" y="1" width="184" height="54" rx="12" fill="${fill}" stroke="${border}" stroke-width="1.5"/><g transform="translate(13 16)" fill="none" stroke="${ink}" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${item.icon}</g><text x="46" y="35" fill="${ink}" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif" font-size="20" font-weight="600">${esc(item.label)}</text><path d="M158 32l10-10m-8 0h8v8" fill="none" stroke="${ink}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/></svg>`;
+ await write('assets/navigation/' + item.id + '.svg', svg);
+}
+const navigation = '<p align="center">\n' + navigationItems.map(item =>
+ `  <a href="${item.url}"><img width="126" height="38" src="./assets/navigation/${item.id}.svg?v=nav-v1" alt="${esc(item.label)}" /></a>`
+).join('\n') + '\n</p>';
 function badgeImage(badge) {
  const message = encodeURIComponent(badge.label.replaceAll('-', '--').replaceAll('_', '__'));
  const params = new URLSearchParams({ style: 'flat-square' });
@@ -91,20 +123,20 @@ function badgeImage(badge) {
   params.set('logoColor', badge.logoColor);
  }
  const url = `https://img.shields.io/badge/${message}-${badge.color}?${params}`;
- return `  <img height="28" src="${esc(url)}" alt="${esc(badge.label)}" />`;
+ return `      <img height="24" src="${esc(url)}" alt="${esc(badge.label)}" />`;
 }
-const profileTagGroups = profile.profileTags.map(group =>
- `### ${group.title}\n\n<p>\n${group.items.map(badgeImage).join('\n')}\n</p>`
-).join('\n\n');
+const profileTagGroups = '<table align="center" width="100%">\n<tbody>\n' + profile.profileTags.map(group =>
+ `  <tr>\n    <th scope="row" width="72" align="left" valign="middle">${esc(group.title)}</th>\n    <td>\n${group.items.map(badgeImage).join('\n')}\n    </td>\n  </tr>`
+).join('\n') + '\n</tbody>\n</table>';
 const readme=`<details>
-<summary><picture><img width="1000" src="./assets/hello.svg?v=clean-greeting-v2" alt="马骁的个人空间：产品研究、交互实践与写作记录。点击和我打招呼。" /></picture></summary>
+<summary><picture><img width="1000" src="./assets/hello.svg?v=header-layout-v3" alt="马骁的个人空间：产品研究、交互实践与写作记录。点击和我打招呼。" /></picture></summary>
 
 <h3 align="center">hi 👋，很高兴在这里遇见你。</h3>
 <p align="center">我是马骁，欢迎交流产品研究、交互体验与 AI 探索。</p>
 
 </details>
 
-<p align="center">🌐 <a href="https://xma28016-gif.github.io/">个人网站</a> · 🧩 <a href="./PROJECTS.md">全部项目</a> · 🧰 <a href="./SKILLS.md">技能与标签</a> · ✍️ <a href="./ARTICLES.md">文章归档</a> · 👋 <a href="https://xma28016-gif.github.io/home.html#contact">联系我</a></p>
+${navigation}
 
 ${profileTagGroups}
 

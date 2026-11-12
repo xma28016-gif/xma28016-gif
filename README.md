@@ -1,33 +1,44 @@
 <details>
-<summary><picture><img width="1000" src="./assets/hello.svg?v=clean-greeting-v2" alt="马骁的个人空间：产品研究、交互实践与写作记录。点击和我打招呼。" /></picture></summary>
+<summary><picture><img width="1000" src="./assets/hello.svg?v=header-layout-v3" alt="马骁的个人空间：产品研究、交互实践与写作记录。点击和我打招呼。" /></picture></summary>
 
 <h3 align="center">hi 👋，很高兴在这里遇见你。</h3>
 <p align="center">我是马骁，欢迎交流产品研究、交互体验与 AI 探索。</p>
 
 </details>
 
-<p align="center">🌐 <a href="https://xma28016-gif.github.io/">个人网站</a> · 🧩 <a href="./PROJECTS.md">全部项目</a> · 🧰 <a href="./SKILLS.md">技能与标签</a> · ✍️ <a href="./ARTICLES.md">文章归档</a> · 👋 <a href="https://xma28016-gif.github.io/home.html#contact">联系我</a></p>
-
-### 技能
-
-<p>
-  <img height="28" src="https://img.shields.io/badge/Requirements%20Analysis-F58025?style=flat-square" alt="Requirements Analysis" />
-  <img height="28" src="https://img.shields.io/badge/Agent%20Design-8E62BF?style=flat-square" alt="Agent Design" />
-  <img height="28" src="https://img.shields.io/badge/RAG%20Solutions-2A9D8F?style=flat-square" alt="RAG Solutions" />
-  <img height="28" src="https://img.shields.io/badge/Product%20Teardown-EF5B67?style=flat-square" alt="Product Teardown" />
-  <img height="28" src="https://img.shields.io/badge/Prompt%20Engineering-D4A017?style=flat-square" alt="Prompt Engineering" />
+<p align="center">
+  <a href="https://xma28016-gif.github.io/"><img width="126" height="38" src="./assets/navigation/website.svg?v=nav-v1" alt="个人网站" /></a>
+  <a href="./PROJECTS.md"><img width="126" height="38" src="./assets/navigation/projects.svg?v=nav-v1" alt="全部项目" /></a>
+  <a href="./SKILLS.md"><img width="126" height="38" src="./assets/navigation/skills.svg?v=nav-v1" alt="技能标签" /></a>
+  <a href="./ARTICLES.md"><img width="126" height="38" src="./assets/navigation/articles.svg?v=nav-v1" alt="文章归档" /></a>
+  <a href="https://xma28016-gif.github.io/home.html#contact"><img width="126" height="38" src="./assets/navigation/contact.svg?v=nav-v1" alt="联系我" /></a>
 </p>
 
-### 工程
-
-<p>
-  <img height="28" src="https://img.shields.io/badge/React-61DAFB?style=flat-square&amp;logo=react&amp;logoColor=000000" alt="React" />
-  <img height="28" src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&amp;logo=typescript&amp;logoColor=white" alt="TypeScript" />
-  <img height="28" src="https://img.shields.io/badge/Python-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python" />
-  <img height="28" src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&amp;logo=fastapi&amp;logoColor=white" alt="FastAPI" />
-  <img height="28" src="https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square&amp;logo=langchain&amp;logoColor=white" alt="LangChain" />
-  <img height="28" src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&amp;logo=docker&amp;logoColor=white" alt="Docker" />
-</p>
+<table align="center" width="100%">
+<tbody>
+  <tr>
+    <th scope="row" width="72" align="left" valign="middle">技能</th>
+    <td>
+      <img height="24" src="https://img.shields.io/badge/Requirements%20Analysis-F58025?style=flat-square" alt="Requirements Analysis" />
+      <img height="24" src="https://img.shields.io/badge/Agent%20Design-8E62BF?style=flat-square" alt="Agent Design" />
+      <img height="24" src="https://img.shields.io/badge/RAG%20Solutions-2A9D8F?style=flat-square" alt="RAG Solutions" />
+      <img height="24" src="https://img.shields.io/badge/Product%20Teardown-EF5B67?style=flat-square" alt="Product Teardown" />
+      <img height="24" src="https://img.shields.io/badge/Prompt%20Engineering-D4A017?style=flat-square" alt="Prompt Engineering" />
+    </td>
+  </tr>
+  <tr>
+    <th scope="row" width="72" align="left" valign="middle">工程</th>
+    <td>
+      <img height="24" src="https://img.shields.io/badge/React-61DAFB?style=flat-square&amp;logo=react&amp;logoColor=000000" alt="React" />
+      <img height="24" src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&amp;logo=typescript&amp;logoColor=white" alt="TypeScript" />
+      <img height="24" src="https://img.shields.io/badge/Python-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python" />
+      <img height="24" src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&amp;logo=fastapi&amp;logoColor=white" alt="FastAPI" />
+      <img height="24" src="https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square&amp;logo=langchain&amp;logoColor=white" alt="LangChain" />
+      <img height="24" src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&amp;logo=docker&amp;logoColor=white" alt="Docker" />
+    </td>
+  </tr>
+</tbody>
+</table>
 
 ---
 
