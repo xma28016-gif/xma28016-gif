@@ -72,7 +72,7 @@
       ]
     }
   ],
-  "reviewedAt": "2026-11-12",
+  "reviewedAt": "2026-11-13",
   "works": [
     {
       "id": "ctrip-hotel-subscription",
@@ -291,6 +291,38 @@
         {
           "title": "公开展示与当前阶段",
           "text": "仓库提供产品介绍、工作流程和真实应用截图。本地版本处于内部体验阶段，源码与安装包的公开分发仍待上游授权核对，真实家庭与儿童验收待完成。"
+        }
+      ]
+    },
+    {
+      "id": "vibe-coding-fullstack-tips",
+      "title": "Vibe Coding 全栈开发技巧",
+      "category": "toolkit",
+      "label": "开发工具包",
+      "status": "MIT 开源",
+      "repo": "https://github.com/xma28016-gif/vibe-coding-fullstack-tips",
+      "url": "https://github.com/xma28016-gif/vibe-coding-fullstack-tips",
+      "description": "面向 AI 辅助全栈开发的中文手册与工具包，覆盖从想法、PRD、技术适配到开发、验收和上线的六阶段流程，附规则卡、模板与验证脚本。",
+      "tags": [
+        "PRD 模板",
+        "Python / FastAPI",
+        "Next.js / TypeScript",
+        "验证与交付",
+        "MIT 开源"
+      ],
+      "updated": "2026-11-13",
+      "sections": [
+        {
+          "title": "六阶段开发流程",
+          "text": "从需求检查、技术适配、后端 MVP、前端实现，到部署与收尾，按阶段组织产物、验证和交接。"
+        },
+        {
+          "title": "手册与模板",
+          "text": "包含通用技术栈、前端与上线部署三份手册，以及 PRD 模板、AI 规则卡和参考代码。默认方案覆盖 FastAPI、Next.js 与腾讯云开发，可根据现有项目调整。"
+        },
+        {
+          "title": "验证与开源",
+          "text": "提供项目状态管理和自检脚本，指导保留真实模型调用、模拟测试与验收证据。经授权整理发布，维护者马骁，采用 MIT 许可证。"
         }
       ]
     }

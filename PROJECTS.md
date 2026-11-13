@@ -154,6 +154,28 @@
 
 [完整作品](https://github.com/xma28016-gif/little-inventor) · [源码仓库](https://github.com/xma28016-gif/little-inventor)
 
+---
+
+## Vibe Coding 全栈开发技巧
+
+面向 AI 辅助全栈开发的中文手册与工具包，覆盖从想法、PRD、技术适配到开发、验收和上线的六阶段流程，附规则卡、模板与验证脚本。
+
+`PRD 模板` `Python / FastAPI` `Next.js / TypeScript` `验证与交付` `MIT 开源`
+
+### 六阶段开发流程
+
+从需求检查、技术适配、后端 MVP、前端实现，到部署与收尾，按阶段组织产物、验证和交接。
+
+### 手册与模板
+
+包含通用技术栈、前端与上线部署三份手册，以及 PRD 模板、AI 规则卡和参考代码。默认方案覆盖 FastAPI、Next.js 与腾讯云开发，可根据现有项目调整。
+
+### 验证与开源
+
+提供项目状态管理和自检脚本，指导保留真实模型调用、模拟测试与验收证据。经授权整理发布，维护者马骁，采用 MIT 许可证。
+
+[完整作品](https://github.com/xma28016-gif/vibe-coding-fullstack-tips) · [源码仓库](https://github.com/xma28016-gif/vibe-coding-fullstack-tips)
+
 ## 全部公开仓库
 
 | 仓库 | 用途 |
@@ -165,5 +187,6 @@
 | [heartbeat](https://github.com/xma28016-gif/heartbeat) | 心跳 heartbeat · 薪动 × 涨声 |
 | [zhijing-rag](https://github.com/xma28016-gif/zhijing-rag) | RAG中台 |
 | [little-inventor](https://github.com/xma28016-gif/little-inventor) | 小小发明家 |
+| [vibe-coding-fullstack-tips](https://github.com/xma28016-gif/vibe-coding-fullstack-tips) | Vibe Coding 全栈开发技巧 |
 | [qingyan-camera-proposal](https://github.com/xma28016-gif/qingyan-camera-proposal) | 轻颜相机 2.0 迭代方案 |
 | [xma28016-gif](https://github.com/xma28016-gif/xma28016-gif) | GitHub 主页 README、展示卡片与内容索引 |

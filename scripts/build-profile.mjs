@@ -9,6 +9,7 @@ const catalog = [...profile.works, ...profile.documents];
 const heartbeat = profile.works.find(w => w.id === 'heartbeat');
 const rag = profile.works.find(w => w.id === 'zhijing-rag');
 const littleInventor = profile.works.find(w => w.id === 'little-inventor');
+const developmentKit = profile.works.find(w => w.id === 'vibe-coding-fullstack-tips');
 const featuredWorks = profile.featuredWorks.map(id => {
  const work = profile.works.find(w => w.id === id);
  if (!work) throw new Error('Missing featured work: ' + id);
@@ -51,7 +52,7 @@ const cards = [
  {id:'little-inventor',pose:'skill-placeholder',type:'产品 / AI GAME',title:['小小发明家','AI 游戏创作'],sub:'自然对话 · 语音输入 · 本地作品',tags:['4–6 岁','AI 游戏创作','项目展示'],p:'lilac',prop:'game',url:littleInventor.repo,alt:littleInventor.title},
  {id:'doc-research',type:'文档 / DOCUMENT',title:['AI 产品评测','研究笔记'],sub:'即梦 AI · 实测路径与判断依据',tags:['任务记录','截图取证','结论边界'],p:'blue',prop:'book',url:profile.works[1].url,alt:'AI 产品评测文档'},
  {id:'qingyan',type:'文档 / DOCUMENT',title:['轻颜相机','2.0 迭代方案'],sub:'从用户需求，到版本取舍',tags:['需求分析','版本规划','实验设计'],p:'pink',prop:'camera',url:qingyan.url,alt:qingyan.title},
- {id:'skill-research',type:'技能 / PRACTICE',title:['产品研究','与策划'],sub:'拆解问题，形成可验证的方案',tags:['AI 产品评测','需求分析','版本规划'],p:'mint',prop:'research',url:'./SKILLS.md#产品研究与策划',alt:'产品研究与策划技能'},
+ {id:'vibe-coding-kit',pose:'doc-placeholder',type:'工具包 / VIBE CODING',title:['Vibe Coding','全栈开发技巧'],sub:'从想法、PRD，到开发验收与上线',tags:['六阶段流程','真实模型验证','MIT 开源'],p:'mint',prop:'book',url:developmentKit.repo,alt:developmentKit.title},
  {id:'skill-build',type:'技能 / PRACTICE',title:['交互原型','与 Web 实践'],sub:'把想法，做成可体验的作品',tags:['全景交互','响应式布局','JavaScript'],p:'pink',prop:'code',url:'./SKILLS.md#交互与体验',alt:'交互原型与 Web 实践技能'},
  {id:'article-ai',type:'文章 / WECHAT',title:['AI 先裁谁？'],sub:'公司省下的人，最后去了哪里',tags:['代码不再冷冰冰','AI 与职场'],p:'sand',prop:'book',url:profile.notes[0].url,alt:profile.notes[0].title},
  {id:'article-qingyan',type:'文章 / PRODUCT',title:['从拍得好看','到愿意发布'],sub:'轻颜相机 2.0 · 产品策划记录',tags:['用户需求','产品取舍','完整报告'],p:'pink',prop:'camera',url:profile.notes[1].url,alt:profile.notes[1].title},
@@ -94,9 +95,27 @@ const heroArt = `<text x="92" y="39" fill="#6d86af" font-size="20" font-weight="
  <text x="64" y="298" fill="#52667e" font-size="27" font-weight="550">产品研究 · 交互实践 · 写作记录</text>`;
 await write('assets/hello.svg', frame(1280, 380, 'blue', heroArt, '你好，我是马骁。点击卡片，和我打个招呼'));
 const byID=Object.fromEntries(cards.map(c=>[c.id,c]));
-function row(ids) {return '<p>\n'+ids.map(id=>{const c=byID[id];return `  <a href="${c.url}"><img width="49%" src="./assets/cards/${id}.svg?v=${id === 'little-inventor' ? 'inventor-v1' : id === 'rag' ? 'rag-v1' : id === 'heartbeat' ? 'heartbeat-v1' : id === 'article-qingyan' ? 'selected-photos-v3' : id === 'qingyan' ? 'document-v1' : id === 'scene-studio' ? 'scene-pose-v2' : 'poses-v2'}" alt="${esc(c.alt)}" /></a>`;}).join('\n')+'\n</p>\n';}
+function row(ids) {return '<p>\n'+ids.map(id=>{const c=byID[id];return `  <a href="${c.url}"><img width="49%" src="./assets/cards/${id}.svg?v=${id === 'vibe-coding-kit' ? 'kit-v1' : id === 'little-inventor' ? 'inventor-v1' : id === 'rag' ? 'rag-v1' : id === 'heartbeat' ? 'heartbeat-v1' : id === 'article-qingyan' ? 'selected-photos-v3' : id === 'qingyan' ? 'document-v1' : id === 'scene-studio' ? 'scene-pose-v2' : 'poses-v2'}" alt="${esc(c.alt)}" /></a>`;}).join('\n')+'\n</p>\n';}
 const projectRows=featuredWorks.map(w=>`| [${w.title}](${w.repo}) | ${w.description} | [${w.url===w.repo?'项目说明':w.category==='research'?'阅读报告':'在线体验'}](${w.url}) |`).join('\n');
 const skillSections=profile.skills.map(g=>`### ${g.title}\n\n${g.description}\n\n`+g.items.map(s=>`- **${s.name}** · `+s.projects.map(id=>{const w=catalog.find(x=>x.id===id);return `[${w.title}](${w.repo})`;}).join(' / ')).join('\n')).join('\n\n');
+const handbookPath = path => developmentKit.repo + '/blob/main/' + path.split('/').map(encodeURIComponent).join('/');
+const developmentKitSection = `## ${developmentKit.title}
+
+${developmentKit.description}
+
+${developmentKit.tags.map(tag => '\x60' + tag + '\x60').join(' ')}
+
+${developmentKit.sections.map(section => '### ' + section.title + '\n\n' + section.text).join('\n\n')}
+
+| 内容 | 入口 |
+| --- | --- |
+| 项目说明与下载 | [开源仓库](${developmentKit.repo}) |
+| 入门与操作步骤 | [开始看这里](${handbookPath('开始看这里.md')}) |
+| 需求文档模板 | [PRD 模板](${handbookPath('docs/PRD模板.md')}) |
+| 技术、前端与部署手册 | [手册目录](${developmentKit.repo}/tree/main/${['docs','手册'].map(encodeURIComponent).join('/')}) |
+
+经授权整理发布 · 维护者 **${profile.name}** · [MIT License](${handbookPath('LICENSE')})
+`;
 const articleTable=profile.notes.map(n=>`| [${n.title}](${n.url}) | ${n.category} | ${n.date||'未提供'} | ${n.source} |`).join('\n');
 const navigationItems = [
  { id: 'website', label: '个人网站', url: 'https://xma28016-gif.github.io/', icon: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c5 5 5 13 0 18-5-5-5-13 0-18z"/>' },
@@ -180,14 +199,14 @@ ${row(['doc-placeholder'])}
 
 ## 🧰 技能与实践
 
-技能关联真实项目，方便从方法找到具体实践。
+开发手册与项目实践，从方法到可以复用的工具。
 
-${row(['skill-research','skill-build'])}
+${row(['vibe-coding-kit','skill-build'])}
 <details>
 <summary><strong>技能对应项目与公开 Skills 预留位</strong></summary>
 
 ${row(['skill-placeholder'])}
-[查看全部 16 个技能标签与项目对应关系](./SKILLS.md)。公开 Skills 工具包尚未提供，暂留位置。
+[查看开发手册与 16 个实践技能](./SKILLS.md)。独立 AI Skills 文件待补充。
 
 </details>
 
@@ -222,7 +241,7 @@ ${articleTable}
 `;
 await write('README.md',readme);
 await write('PROJECTS.md','# 项目与作品\n\n[← 返回个人主页](./README.md)\n\n'+profile.works.map(w=>`## ${w.title}\n\n${w.description}\n\n${w.tags.map(x=>'`'+x+'`').join(' ')}\n\n`+w.sections.map(s=>'### '+s.title+'\n\n'+s.text).join('\n\n')+`\n\n[完整作品](${w.url}) · [源码仓库](${w.repo})${w.demo ? ` · [在线体验](${w.demo})` : ''}${w.download ? ` · [Mac 预览版下载](${w.download})` : ''}\n`).join('\n---\n\n')+'\n## 全部公开仓库\n\n| 仓库 | 用途 |\n| --- | --- |\n'+catalog.map(w=>`| [${w.id}](${w.repo}) | ${w.title} |`).join('\n')+'\n| [xma28016-gif](https://github.com/xma28016-gif/xma28016-gif) | GitHub 主页 README、展示卡片与内容索引 |\n');
-await write('SKILLS.md','# 技能与实践\n\n[← 返回个人主页](./README.md)\n\n'+skillSections+'\n\n## 公开 Skills 预留位\n\n待补充。当前尚未收录可公开发布的独立 Skills 工具包；以上为已关联项目的实践技能。\n');
+await write('SKILLS.md','# 技能与实践\n\n[← 返回个人主页](./README.md)\n\n'+developmentKitSection+'\n## 实践技能索引\n\n'+skillSections+'\n\n## 公开 Skills 预留位\n\n开发手册已开源，见上方「Vibe Coding 全栈开发技巧」。可独立安装的 AI Skills 文件尚未收录，此处预留位置。\n');
 await write('ARTICLES.md','# 文章归档\n\n[← 返回个人主页](./README.md)\n\n## 已收录\n\n| 文章 | 分类 | 日期 | 来源 |\n| --- | --- | --- | --- |\n'+articleTable+'\n\n## 待补充\n\n| 内容 | 状态 |\n| --- | --- |\n| 公众号历史文章 | 待提供标题与 mp.weixin.qq.com 原文链接 |\n| 其他随笔与长文 | 待提供标题、来源与链接 |\n\n没有取得的信息不补写日期或摘要。\n');
 await write('DOCUMENTS.md','# 知识文档\n\n[← 返回个人主页](./README.md)\n\n## 已收录\n\n- [即梦 AI 实测拆解报告]('+profile.works[1].url+') · 任务路径、截图证据与二次核验。\n- ['+qingyan.title+']('+qingyan.url+') · 需求取舍、版本范围与实验验收。\n\n## '+qingyan.title+'\n\n'+qingyan.description+'\n\n'+qingyan.sections.map(section=>'### '+section.title+'\n\n'+section.text).join('\n\n')+'\n\n[阅读完整文档]('+qingyan.url+') · [文档仓库]('+qingyan.repo+')\n\n## 待补充\n\n更多研究文档、产品规格与模板尚未提供。此处为预留位置。\n');
 await write('MAINTENANCE.md','# 维护主页\n\n内容在 `profile.json`，卡片布局与 Markdown 生成逻辑在 `scripts/build-profile.mjs`。\n\n```sh\nnpm ci\nnpm run build\n```\n\n头像素材 `assets/maxiao.png` 为站点主人选择的身份与画风参考，顶部欢迎卡沿用原图。卡片使用 SVG 文本与矢量图形排版，按主题内嵌 `assets/poses/` 中不同姿态的人物 PNG。生成提示词与卡片映射保存在 `assets/poses/manifest.json`。没有已确认内容的卡片明确标为待补充。\n\nGitHub 顶部卡片用原生 details/summary 展开 hi，网站保留原有点击动画。\n');

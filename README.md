@@ -96,10 +96,10 @@
 
 ## 🧰 技能与实践
 
-技能关联真实项目，方便从方法找到具体实践。
+开发手册与项目实践，从方法到可以复用的工具。
 
 <p>
-  <a href="./SKILLS.md#产品研究与策划"><img width="49%" src="./assets/cards/skill-research.svg?v=poses-v2" alt="产品研究与策划技能" /></a>
+  <a href="https://github.com/xma28016-gif/vibe-coding-fullstack-tips"><img width="49%" src="./assets/cards/vibe-coding-kit.svg?v=kit-v1" alt="Vibe Coding 全栈开发技巧" /></a>
   <a href="./SKILLS.md#交互与体验"><img width="49%" src="./assets/cards/skill-build.svg?v=poses-v2" alt="交互原型与 Web 实践技能" /></a>
 </p>
 
@@ -110,7 +110,7 @@
   <a href="./SKILLS.md#公开-skills-预留位"><img width="49%" src="./assets/cards/skill-placeholder.svg?v=poses-v2" alt="公开 Skills 工具包预留位，待补充" /></a>
 </p>
 
-[查看全部 16 个技能标签与项目对应关系](./SKILLS.md)。公开 Skills 工具包尚未提供，暂留位置。
+[查看开发手册与 16 个实践技能](./SKILLS.md)。独立 AI Skills 文件待补充。
 
 </details>
 
@@ -151,4 +151,4 @@
 
 ---
 
-<sub>这里展示公开项目与已确认文章。标为“待补充”的卡片是预留位置；不会将它们计为完成成果。更新于 2026-11-12。</sub>
+<sub>这里展示公开项目与已确认文章。标为“待补充”的卡片是预留位置；不会将它们计为完成成果。更新于 2026-11-13。</sub>
