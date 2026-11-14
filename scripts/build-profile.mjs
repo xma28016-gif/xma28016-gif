@@ -60,7 +60,7 @@ const cards = [
  {id:'article-placeholder',type:'文章 / PLACEHOLDER',title:['更多文章','待补充'],sub:'公众号历史文章 · 预留位置',tags:['等待标题与原文链接'],p:'lilac',prop:'placeholder',url:'./ARTICLES.md#待补充',alt:'更多公众号文章预留位，待补充'},
  {id:'doc-placeholder',type:'文档 / PLACEHOLDER',title:['更多知识文档','待补充'],sub:'文档、方法与模板 · 预留位置',tags:['内容整理中'],p:'sand',prop:'placeholder',url:'./DOCUMENTS.md#待补充',alt:'知识文档预留位，待补充'},
  {id:'skill-placeholder',type:'技能 / PLACEHOLDER',title:['公开 Skills','待补充'],sub:'可复用的工具包 · 预留位置',tags:['仅展示已公开内容'],p:'lilac',prop:'placeholder',url:'./SKILLS.md#公开-skills-预留位',alt:'公开 Skills 工具包预留位，待补充'},
- {id:'contact',type:'联系 / SAY HELLO',title:['下一个好想法','从你好开始'],sub:'产品研究 · 交互体验 · AI 探索',tags:['GitHub 交流','公众号阅读'],p:'blue',prop:'code',url:'https://xma28016-gif.github.io/home.html#contact',alt:'与马骁交流，点击前往网站打招呼'}
+ {id:'contact',type:'联系 / SAY HELLO',title:['下一个好想法','从你好开始'],sub:'产品研究 · 交互体验 · AI 探索',tags:['GitHub 交流','公众号阅读'],p:'blue',prop:'code',backdrop:false,url:'https://xma28016-gif.github.io/home.html#contact',alt:'与马骁交流，点击前往网站打招呼'}
 ];
 await fs.mkdir(new URL('assets/cards/',root),{recursive:true});
 for (const c of cards) {
@@ -75,8 +75,9 @@ for (const c of cards) {
  const chipsY=c.title.length===1?348:387;
  let x=60;
  const tags=c.tags.map(t=>{const w=t.length*20+30;const tag=`<rect x="${x}" y="${chipsY-25}" width="${w}" height="38" rx="9" fill="${bg}"/><text x="${x+14}" y="${chipsY+1}" fill="${muted}" font-size="20" font-weight="550">${esc(t)}</text>`;x+=w+9;return tag;}).join('');
- const illustration = `${prop(c.prop,accent)}<image href="${poseURI}" x="720" y="60" width="540" height="390" preserveAspectRatio="xMidYMin meet"/>`;
- const art=`<ellipse cx="985" cy="265" rx="235" ry="220" fill="url(#glow)"/>${illustration}<text x="92" y="39" fill="${muted}" font-size="22" font-weight="650">${esc(c.type)}</text><path d="M60 ${lineY}q170 13 515-2" fill="none" stroke="#f4a15d" stroke-width="9" stroke-linecap="round"/>${text}<text x="60" y="${subY}" fill="#465668" font-size="28" font-weight="600">${esc(c.sub)}</text>${tags}`;
+ const backdrop = c.backdrop === false ? '' : `<ellipse cx="985" cy="265" rx="235" ry="220" fill="url(#glow)"/>${prop(c.prop,accent)}`;
+ const illustration = `<image href="${poseURI}" x="720" y="60" width="540" height="390" preserveAspectRatio="xMidYMin meet"/>`;
+ const art=`${backdrop}${illustration}<text x="92" y="39" fill="${muted}" font-size="22" font-weight="650">${esc(c.type)}</text><path d="M60 ${lineY}q170 13 515-2" fill="none" stroke="#f4a15d" stroke-width="9" stroke-linecap="round"/>${text}<text x="60" y="${subY}" fill="#465668" font-size="28" font-weight="600">${esc(c.sub)}</text>${tags}`;
  await write('assets/cards/'+c.id+'.svg',frame(1280,460,c.p,art,c.alt));
 }
 const heroArt = `<text x="92" y="39" fill="#6d86af" font-size="20" font-weight="650">MX OS / PERSONAL PROFILE</text>
@@ -221,7 +222,7 @@ ${articleTable}
 
 ## 👋 交流一下
 
-<p><a href="https://xma28016-gif.github.io/home.html#contact"><img width="1000" src="./assets/cards/contact.svg?v=poses-v2" alt="下一个好想法，从你好开始。点击前往个人网站打个招呼。" /></a></p>
+<p><a href="https://xma28016-gif.github.io/home.html#contact"><img width="1000" src="./assets/cards/contact.svg?v=character-only-v3" alt="下一个好想法，从你好开始。点击前往个人网站打个招呼。" /></a></p>
 
 - **个人网站** · [xma28016-gif.github.io](https://xma28016-gif.github.io/)
 - **公众号** · [代码不再冷冰冰](https://mp.weixin.qq.com/s/jkrkeoMxSKqe4Bz1p6mLAQ)

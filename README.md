@@ -143,7 +143,7 @@
 
 ## 👋 交流一下
 
-<p><a href="https://xma28016-gif.github.io/home.html#contact"><img width="1000" src="./assets/cards/contact.svg?v=poses-v2" alt="下一个好想法，从你好开始。点击前往个人网站打个招呼。" /></a></p>
+<p><a href="https://xma28016-gif.github.io/home.html#contact"><img width="1000" src="./assets/cards/contact.svg?v=character-only-v3" alt="下一个好想法，从你好开始。点击前往个人网站打个招呼。" /></a></p>
 
 - **个人网站** · [xma28016-gif.github.io](https://xma28016-gif.github.io/)
 - **公众号** · [代码不再冷冰冰](https://mp.weixin.qq.com/s/jkrkeoMxSKqe4Bz1p6mLAQ)
