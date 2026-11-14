@@ -1,5 +1,5 @@
 <details>
-<summary><picture><img width="1000" src="./assets/hello.svg?v=header-layout-v3" alt="马骁的个人空间：产品研究、交互实践与写作记录。点击和我打招呼。" /></picture></summary>
+<summary><picture><img width="1000" src="./assets/hello.svg?v=hero-character-v4" alt="马骁的个人空间：产品研究、交互实践与写作记录。点击和我打招呼。" /></picture></summary>
 
 <h3 align="center">hi 👋，很高兴在这里遇见你。</h3>
 <p align="center">我是马骁，欢迎交流产品研究、交互体验与 AI 探索。</p>

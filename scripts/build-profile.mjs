@@ -80,14 +80,6 @@ for (const c of cards) {
  await write('assets/cards/'+c.id+'.svg',frame(1280,460,c.p,art,c.alt));
 }
 const heroArt = `<text x="92" y="39" fill="#6d86af" font-size="20" font-weight="650">MX OS / PERSONAL PROFILE</text>
- <ellipse cx="1020" cy="210" rx="220" ry="200" fill="url(#glow)"/>
- <g transform="translate(865 96) rotate(7 160 115)" stroke="#b5c8e9" stroke-width="3">
-  <rect width="320" height="230" rx="25" fill="#edf3ff"/>
-  <path d="M0 47h320" fill="none"/>
-  <circle cx="24" cy="24" r="4" fill="#a8bde1" stroke="none"/>
-  <circle cx="40" cy="24" r="4" fill="#c2d0e9" stroke="none"/>
-  <path d="m92 94-37 34 37 34m136-68 37 34-37 34m-51-87-27 109" fill="none" stroke-width="10" stroke-linecap="round" opacity=".6"/>
- </g>
  <image href="${avatarURI}" x="850" y="64" width="340" height="510"/>
  <text x="64" y="126" fill="#637b9b" font-size="18" class="mono" letter-spacing="2.3">MA XIAO · IDEAS INTO PRACTICE</text>
  <text x="60" y="215" fill="#17212f" font-size="74" font-weight="850" letter-spacing="-3">你好，我是马骁。</text>
@@ -150,7 +142,7 @@ const profileTagGroups = '<table align="center" width="100%">\n<tbody>\n' + prof
  `  <tr>\n    <th scope="row" width="72" align="left" valign="middle">${esc(group.title)}</th>\n    <td>\n${group.items.map(badgeImage).join('\n')}\n    </td>\n  </tr>`
 ).join('\n') + '\n</tbody>\n</table>';
 const readme=`<details>
-<summary><picture><img width="1000" src="./assets/hello.svg?v=header-layout-v3" alt="马骁的个人空间：产品研究、交互实践与写作记录。点击和我打招呼。" /></picture></summary>
+<summary><picture><img width="1000" src="./assets/hello.svg?v=hero-character-v4" alt="马骁的个人空间：产品研究、交互实践与写作记录。点击和我打招呼。" /></picture></summary>
 
 <h3 align="center">hi 👋，很高兴在这里遇见你。</h3>
 <p align="center">我是马骁，欢迎交流产品研究、交互体验与 AI 探索。</p>
