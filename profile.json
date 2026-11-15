@@ -2,7 +2,7 @@
   "name": "马骁",
   "github": "https://github.com/xma28016-gif",
   "greeting": "从真实的问题出发，把想法变成可以体验的作品。",
-  "bio": "我在这里整理产品研究、交互原型与 Web 实践。从商品场景图生成器到薪动桌面看板，记录从问题、方案到实现的过程。",
+  "bio": "我在这里整理产品研究、交互原型与 Web 实践。从Second Brain 工作流控制台到薪动桌面看板，记录从问题、方案到实现的过程。",
   "email": "",
   "profileTags": [
     {
@@ -72,7 +72,7 @@
       ]
     }
   ],
-  "reviewedAt": "2026-11-13",
+  "reviewedAt": "2026-11-15",
   "works": [
     {
       "id": "ctrip-hotel-subscription",
@@ -136,33 +136,33 @@
       ]
     },
     {
-      "id": "scene-studio",
-      "title": "Scene Studio · 商品场景图生成器",
+      "id": "second-brain",
+      "title": "Second Brain · 企业第二大脑",
       "category": "web",
-      "label": "AI 工具",
+      "label": "工作流可视化",
       "status": "MIT 开源",
-      "repo": "https://github.com/xma28016-gif/scene-studio",
-      "url": "https://scene-studio-six.vercel.app/prototype.html",
-      "description": "上传商品图，搭配场景与文字描述生成摄影图。支持语音听写、进度反馈和私有作品库。",
+      "repo": "https://github.com/xma28016-gif/second-brain",
+      "url": "https://xma28016-gif.github.io/second-brain/",
+      "description": "多模型工作流可视化控制台：30 秒回放一天的任务进程，同步查看 Token 成本、重连事件和产出资源。当前为无需登录的前端交互演示，所有数据均为模拟。",
       "tags": [
-        "AI 生图",
-        "Dify",
-        "Supabase",
+        "工作流可视化",
+        "多模型编排演示",
+        "Token 成本",
         "MIT 开源"
       ],
-      "updated": "2026-11-08",
+      "updated": "2026-11-15",
       "sections": [
         {
-          "title": "从商品图到场景图",
-          "text": "上传商品照片，选择场景、比例和张数，也可以通过文字或语音描述画面。等待时可查看处理阶段与已用时间。"
+          "title": "任务、模型与产出",
+          "text": "12 条工作流连接 Gemini、Claude、Codex、飞书、Pi Agent 和 DeepSeek Harness 六个节点，产物归入六类文件夹，展示文件格式、容量和内容预览。"
         },
         {
-          "title": "保存与复用",
-          "text": "登录后可在「我的作品」查看原图和生成图，下载所需图片。"
+          "title": "时间轴与成本追踪",
+          "text": "从 04:00 到 24:00 的进程可在 30 秒内回放，支持暂停、拖动回看、倍速和模型路由切换；费用按输入与输出 Token 分项计算，重连次数、日志和归档状态随时间同步。"
         },
         {
-          "title": "开源实现",
-          "text": "前端使用原生 Web，服务端接入 Dify Chatflow，Supabase 提供登录与私有存储。仓库提供本地运行、数据库初始化与 Vercel 部署说明。"
+          "title": "开源实现与边界",
+          "text": "使用原生 HTML、CSS、JavaScript 与 SVG，单文件可离线打开；脑形标识、动态光环与模型图表提供运行反馈。未接入真实模型或业务服务，演示数据、单价及文件体积均为模拟，不产生实际模型费用。"
         }
       ]
     },
@@ -504,7 +504,7 @@
     "zhijing-rag",
     "little-inventor",
     "heartbeat",
-    "scene-studio"
+    "second-brain"
   ],
   "documents": [
     {

@@ -3,7 +3,7 @@ import sharp from 'sharp';
 import { fileURLToPath } from 'node:url';
 const profile = JSON.parse(await fs.readFile(new URL('../profile.json', import.meta.url)));
 const root = new URL('../', import.meta.url);
-const sceneStudio = profile.works.find(w => w.id === 'scene-studio');
+const secondBrain = profile.works.find(w => w.id === 'second-brain');
 const qingyan = profile.documents.find(w => w.id === 'qingyan-camera-proposal');
 const catalog = [...profile.works, ...profile.documents];
 const heartbeat = profile.works.find(w => w.id === 'heartbeat');
@@ -38,6 +38,7 @@ function prop(kind,accent) {
  const base = `<g transform="translate(818 100) rotate(6 150 160)" opacity=".5" stroke="${accent}" stroke-width="3">`;
  if (kind==='hotel') return base + `<rect x="15" y="80" width="300" height="235" rx="24" fill="#e3edff"/><path d="M45 118h240M65 100v180m65-180v180m65-180v180m65-180v180M40 165h250M40 220h250" fill="none"/><rect x="135" y="245" width="55" height="70" rx="5" fill="#fff"/></g>`;
  if (kind==='camera') return base + `<rect x="5" y="125" width="300" height="190" rx="35" fill="#f1e8ff"/><path d="M65 125l25-45h125l25 45" fill="#f1e8ff"/><circle cx="156" cy="219" r="63" fill="#fff"/><circle cx="156" cy="219" r="41" fill="#d6c8ee"/><circle cx="259" cy="163" r="10" fill="#fff"/></g>`;
+ if (kind==='brain') return base + `<g transform="translate(20 25) scale(6)" fill="#fceaf0" stroke-width=".7" stroke-linecap="round" stroke-linejoin="round"><path d="M25 10C22 4 14 5 13 11C7 11 5 16 7 21C2 25 4 32 9 34C7 41 14 45 19 42C21 48 26 46 26 40V13C26 12 26 11 25 10ZM27 10C30 4 38 5 39 11C45 11 47 16 45 21C50 25 48 32 43 34C45 41 38 45 33 42C31 48 26 46 26 40V13C26 12 26 11 27 10Z"/><path d="M13 11c0 6 6 3 7 9M7 21c5-3 11 1 9 6M9 34c1-5 8-5 10-1M39 11c0 6-6 3-7 9M45 21c-5-3-11 1-9 6M43 34c-1-5-8-5-10-1" fill="none"/></g></g>`;
  if (kind==='code') return base + `<rect x="5" y="45" width="315" height="245" rx="24" fill="#e4ecff"/><path d="M5 90h315M93 135l-47 43 47 44m128-87 47 43-47 44m-51-103-35 121" fill="none" stroke-width="12" stroke-linecap="round"/></g>`;
  if (kind==='scene') return base + `<rect x="-2" y="65" width="318" height="255" rx="25" fill="#edf4ff"/><path d="M19 255l77-83 51 51 55-60 92 92v38H19z" fill="#d9e8ff" stroke-linejoin="round"/><circle cx="239" cy="133" r="25" fill="#fff"/></g>`;
  if (kind==='game') return base + `<rect x="0" y="45" width="315" height="255" rx="24" fill="#f0eaff"/><path d="M0 90h315" fill="none"/><path d="M94 145h127c34 0 54 76 46 99-6 18-22 16-42-8l-20-18H110l-20 18c-20 24-36 26-42 8-8-23 12-99 46-99z" fill="#fff"/><path d="M99 172v39m-19-19h38" fill="none" stroke-width="9" stroke-linecap="round"/><circle cx="218" cy="180" r="9" fill="#d9c5f4"/><circle cx="242" cy="203" r="9" fill="#d9c5f4"/></g>`;
@@ -48,7 +49,7 @@ function prop(kind,accent) {
 const cards = [
  {id:'rag',pose:'doc-planning',type:'中台 / RAG',title:['RAG中台'],sub:'文档入库 · 混合检索 · 引用问答',tags:['知识库问答','混合检索','MIT 开源'],p:'blue',prop:'research',url:rag.repo,alt:rag.title},
  {id:'heartbeat',pose:'website',type:'应用 / DESKTOP',title:['心跳 heartbeat','薪动 × 涨声'],sub:'秒薪可视化 · 工资与资产双看板',tags:['macOS','在线体验','MIT 开源'],p:'mint',prop:'code',url:heartbeat.url,alt:heartbeat.title},
- {id:'scene-studio',type:'开源 / AI TOOL',title:['Scene Studio','商品场景图'],sub:'上传商品图，生成场景摄影',tags:['AI 生图','语音听写','MIT 开源'],p:'blue',prop:'scene',url:sceneStudio.repo,alt:sceneStudio.title},
+ {id:'second-brain',pose:'skill-research',type:'开源 / WORKFLOW',title:['Second Brain','企业第二大脑'],sub:'多模型协同 · 成本追踪 · 时间轴回放',tags:['工作流','在线演示','MIT 开源'],p:'pink',prop:'brain',url:secondBrain.url,alt:secondBrain.title},
  {id:'little-inventor',pose:'skill-placeholder',type:'产品 / AI GAME',title:['小小发明家','AI 游戏创作'],sub:'自然对话 · 语音输入 · 本地作品',tags:['4–6 岁','AI 游戏创作','项目展示'],p:'lilac',prop:'game',url:littleInventor.repo,alt:littleInventor.title},
  {id:'doc-research',type:'文档 / DOCUMENT',title:['AI 产品评测','研究笔记'],sub:'即梦 AI · 实测路径与判断依据',tags:['任务记录','截图取证','结论边界'],p:'blue',prop:'book',url:profile.works[1].url,alt:'AI 产品评测文档'},
  {id:'qingyan',type:'文档 / DOCUMENT',title:['轻颜相机','2.0 迭代方案'],sub:'从用户需求，到版本取舍',tags:['需求分析','版本规划','实验设计'],p:'pink',prop:'camera',url:qingyan.url,alt:qingyan.title},
@@ -88,7 +89,7 @@ const heroArt = `<text x="92" y="39" fill="#6d86af" font-size="20" font-weight="
  <text x="64" y="298" fill="#52667e" font-size="27" font-weight="550">产品研究 · 交互实践 · 写作记录</text>`;
 await write('assets/hello.svg', frame(1280, 380, 'blue', heroArt, '你好，我是马骁。点击卡片，和我打个招呼'));
 const byID=Object.fromEntries(cards.map(c=>[c.id,c]));
-function row(ids) {return '<p>\n'+ids.map(id=>{const c=byID[id];return `  <a href="${c.url}"><img width="49%" src="./assets/cards/${id}.svg?v=${id === 'vibe-coding-kit' ? 'kit-v1' : id === 'little-inventor' ? 'inventor-v1' : id === 'rag' ? 'rag-v1' : id === 'heartbeat' ? 'heartbeat-v1' : id === 'article-qingyan' ? 'selected-photos-v3' : id === 'qingyan' ? 'document-v1' : id === 'scene-studio' ? 'scene-pose-v2' : 'poses-v2'}" alt="${esc(c.alt)}" /></a>`;}).join('\n')+'\n</p>\n';}
+function row(ids) {return '<p>\n'+ids.map(id=>{const c=byID[id];return `  <a href="${c.url}"><img width="49%" src="./assets/cards/${id}.svg?v=${id === 'vibe-coding-kit' ? 'kit-v1' : id === 'little-inventor' ? 'inventor-v1' : id === 'rag' ? 'rag-v1' : id === 'heartbeat' ? 'heartbeat-v1' : id === 'article-qingyan' ? 'selected-photos-v3' : id === 'qingyan' ? 'document-v1' : id === 'second-brain' ? 'second-brain-v1' : 'poses-v2'}" alt="${esc(c.alt)}" /></a>`;}).join('\n')+'\n</p>\n';}
 const projectRows=featuredWorks.map(w=>`| [${w.title}](${w.repo}) | ${w.description} | [${w.url===w.repo?'项目说明':w.category==='research'?'阅读报告':'在线体验'}](${w.url}) |`).join('\n');
 const skillSections=profile.skills.map(g=>`### ${g.title}\n\n${g.description}\n\n`+g.items.map(s=>`- **${s.name}** · `+s.projects.map(id=>{const w=catalog.find(x=>x.id===id);return `[${w.title}](${w.repo})`;}).join(' / ')).join('\n')).join('\n\n');
 const handbookPath = path => developmentKit.repo + '/blob/main/' + path.split('/').map(encodeURIComponent).join('/');
@@ -158,11 +159,11 @@ ${profileTagGroups}
 
 ## ⭐ 项目与作品
 
-知识库问答中台、儿童 AI 游戏创作、桌面应用与 AI 工具。点击卡片查看完整项目。
+知识库问答中台、儿童 AI 游戏创作、桌面应用与多模型工作流控制台。点击卡片查看完整项目，Second Brain 可直接在线演示。
 
 ${row(['rag','little-inventor'])}
-${row(['heartbeat','scene-studio'])}
-**Scene Studio** · [开源代码](${sceneStudio.repo}) · [体验入口](${sceneStudio.url})
+${row(['heartbeat','second-brain'])}
+**Second Brain** · [在线演示](${secondBrain.url}) · [开源代码](${secondBrain.repo})
 
 **心跳 heartbeat** · [在线体验](${heartbeat.demo}) · [Mac 预览版下载](${heartbeat.download}) · [开源代码](${heartbeat.repo})
 

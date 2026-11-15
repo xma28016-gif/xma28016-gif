@@ -46,25 +46,25 @@
 
 ---
 
-## Scene Studio · 商品场景图生成器
+## Second Brain · 企业第二大脑
 
-上传商品图，搭配场景与文字描述生成摄影图。支持语音听写、进度反馈和私有作品库。
+多模型工作流可视化控制台：30 秒回放一天的任务进程，同步查看 Token 成本、重连事件和产出资源。当前为无需登录的前端交互演示，所有数据均为模拟。
 
-`AI 生图` `Dify` `Supabase` `MIT 开源`
+`工作流可视化` `多模型编排演示` `Token 成本` `MIT 开源`
 
-### 从商品图到场景图
+### 任务、模型与产出
 
-上传商品照片，选择场景、比例和张数，也可以通过文字或语音描述画面。等待时可查看处理阶段与已用时间。
+12 条工作流连接 Gemini、Claude、Codex、飞书、Pi Agent 和 DeepSeek Harness 六个节点，产物归入六类文件夹，展示文件格式、容量和内容预览。
 
-### 保存与复用
+### 时间轴与成本追踪
 
-登录后可在「我的作品」查看原图和生成图，下载所需图片。
+从 04:00 到 24:00 的进程可在 30 秒内回放，支持暂停、拖动回看、倍速和模型路由切换；费用按输入与输出 Token 分项计算，重连次数、日志和归档状态随时间同步。
 
-### 开源实现
+### 开源实现与边界
 
-前端使用原生 Web，服务端接入 Dify Chatflow，Supabase 提供登录与私有存储。仓库提供本地运行、数据库初始化与 Vercel 部署说明。
+使用原生 HTML、CSS、JavaScript 与 SVG，单文件可离线打开；脑形标识、动态光环与模型图表提供运行反馈。未接入真实模型或业务服务，演示数据、单价及文件体积均为模拟，不产生实际模型费用。
 
-[完整作品](https://scene-studio-six.vercel.app/prototype.html) · [源码仓库](https://github.com/xma28016-gif/scene-studio)
+[完整作品](https://xma28016-gif.github.io/second-brain/) · [源码仓库](https://github.com/xma28016-gif/second-brain)
 
 ---
 
@@ -182,7 +182,7 @@
 | --- | --- |
 | [ctrip-hotel-subscription](https://github.com/xma28016-gif/ctrip-hotel-subscription) | 携程酒店订阅体验 |
 | [jimeng-product-teardown](https://github.com/xma28016-gif/jimeng-product-teardown) | 即梦 AI 产品拆解 |
-| [scene-studio](https://github.com/xma28016-gif/scene-studio) | Scene Studio · 商品场景图生成器 |
+| [second-brain](https://github.com/xma28016-gif/second-brain) | Second Brain · 企业第二大脑 |
 | [xma28016-gif.github.io](https://github.com/xma28016-gif/xma28016-gif.github.io) | 个人网站 · MX OS |
 | [heartbeat](https://github.com/xma28016-gif/heartbeat) | 心跳 heartbeat · 薪动 × 涨声 |
 | [zhijing-rag](https://github.com/xma28016-gif/zhijing-rag) | RAG中台 |
