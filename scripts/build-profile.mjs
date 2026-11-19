@@ -81,13 +81,39 @@ for (const c of cards) {
  const art=`${backdrop}${illustration}<text x="92" y="39" fill="${muted}" font-size="22" font-weight="650">${esc(c.type)}</text><path d="M60 ${lineY}q170 13 515-2" fill="none" stroke="#f4a15d" stroke-width="9" stroke-linecap="round"/>${text}<text x="60" y="${subY}" fill="#465668" font-size="28" font-weight="600">${esc(c.sub)}</text>${tags}`;
  await write('assets/cards/'+c.id+'.svg',frame(1280,460,c.p,art,c.alt));
 }
+// Rig the existing transparent portrait in its original 640 × 960 coordinates.
+// The wrist layers overlap so the hand stays joined throughout the wave.
+const animatedAvatar = `<svg x="850" y="64" width="340" height="510" viewBox="0 0 640 960" overflow="visible">
+ <defs>
+  <image id="mx-portrait" href="${avatarURI}" width="640" height="960"/>
+  <mask id="mx-body" maskUnits="userSpaceOnUse" x="0" y="0" width="640" height="960">
+   <rect width="640" height="960" fill="white"/>
+   <path d="M438 120H550V274H490L454 253L438 245Z" fill="black"/>
+  </mask>
+  <clipPath id="mx-hand"><path d="M438 120H550V282H490L452 260L438 252Z"/></clipPath>
+  <style>
+   .mx-person{transform-origin:320px 650px;animation:mx-breathe 6s ease-in-out infinite}
+   .mx-wave{transform-origin:474px 264px;animation:mx-wave 6s ease-in-out infinite}
+   @keyframes mx-breathe{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-3px) rotate(-.3deg)}}
+   @keyframes mx-wave{0%,8%,36%,100%{transform:rotate(0deg)}12%{transform:rotate(-10deg)}18%{transform:rotate(14deg)}24%{transform:rotate(-9deg)}30%{transform:rotate(11deg)}}
+   @media(prefers-reduced-motion:reduce){.mx-person{display:none}.mx-still{display:inline}}
+  </style>
+ </defs>
+ <use class="mx-still" href="#mx-portrait" display="none"/>
+ <g class="mx-person">
+  <use href="#mx-portrait" mask="url(#mx-body)"/>
+  <g class="mx-wave"><use href="#mx-portrait" clip-path="url(#mx-hand)"/></g>
+ </g>
+</svg>`;
 const heroArt = `<text x="92" y="39" fill="#6d86af" font-size="20" font-weight="650">MX OS / PERSONAL PROFILE</text>
- <image href="${avatarURI}" x="850" y="64" width="340" height="510"/>
+ ${animatedAvatar}
  <text x="64" y="126" fill="#637b9b" font-size="18" class="mono" letter-spacing="2.3">MA XIAO · IDEAS INTO PRACTICE</text>
  <text x="60" y="215" fill="#17212f" font-size="74" font-weight="850" letter-spacing="-3">你好，我是马骁。</text>
  <path d="M64 237q235 11 590-1" fill="none" stroke="#f4a15d" stroke-width="8" stroke-linecap="round"/>
  <text x="64" y="298" fill="#52667e" font-size="27" font-weight="550">产品研究 · 交互实践 · 写作记录</text>`;
-await write('assets/hello.svg', frame(1280, 380, 'blue', heroArt, '你好，我是马骁。点击卡片，和我打个招呼'));
+await write('assets/hello.svg', frame(1280, 380, 'blue', heroArt, '马骁挥手欢迎你。点击卡片，和我打个招呼'));
+const stillHeroArt = heroArt.replace(animatedAvatar, `<image href="${avatarURI}" x="850" y="64" width="340" height="510"/>`);
+await write('assets/hello-static.svg', frame(1280, 380, 'blue', stillHeroArt, '你好，我是马骁。点击卡片，和我打个招呼'));
 const byID=Object.fromEntries(cards.map(c=>[c.id,c]));
 function row(ids) {return '<p>\n'+ids.map(id=>{const c=byID[id];return `  <a href="${c.url}"><img width="49%" src="./assets/cards/${id}.svg?v=${id === 'vibe-coding-kit' ? 'kit-v1' : id === 'little-inventor' ? 'inventor-v1' : id === 'rag' ? 'rag-v1' : id === 'heartbeat' ? 'heartbeat-v1' : id === 'article-qingyan' ? 'selected-photos-v3' : id === 'qingyan' ? 'document-v1' : id === 'second-brain' ? 'second-brain-v1' : 'poses-v2'}" alt="${esc(c.alt)}" /></a>`;}).join('\n')+'\n</p>\n';}
 const projectRows=featuredWorks.map(w=>`| [${w.title}](${w.repo}) | ${w.description} | [${w.url===w.repo?'项目说明':w.category==='research'?'阅读报告':'在线体验'}](${w.url}) |`).join('\n');
@@ -144,7 +170,7 @@ const profileTagGroups = '<table align="center" width="100%">\n<tbody>\n' + prof
  `  <tr>\n    <th scope="row" width="72" align="left" valign="middle">${esc(group.title)}</th>\n    <td>\n${group.items.map(badgeImage).join('\n')}\n    </td>\n  </tr>`
 ).join('\n') + '\n</tbody>\n</table>';
 const readme=`<details>
-<summary><picture><img width="1000" src="./assets/hello.svg?v=hero-character-v4" alt="马骁的个人空间：产品研究、交互实践与写作记录。点击和我打招呼。" /></picture></summary>
+<summary><picture><source media="(prefers-reduced-motion: reduce)" srcset="./assets/hello-static.svg?v=hero-still-v1" /><img width="1000" src="./assets/hello.svg?v=hero-wave-v5" alt="马骁的个人空间：产品研究、交互实践与写作记录。点击和我打招呼。" /></picture></summary>
 
 <h3 align="center">hi 👋，很高兴在这里遇见你。</h3>
 <p align="center">我是马骁，欢迎交流产品研究、交互体验与 AI 探索。</p>
@@ -238,5 +264,5 @@ await write('PROJECTS.md','# 项目与作品\n\n[← 返回个人主页](./READM
 await write('SKILLS.md','# 技能与实践\n\n[← 返回个人主页](./README.md)\n\n'+developmentKitSection+'\n## 实践技能索引\n\n'+skillSections+'\n\n## 公开 Skills 预留位\n\n开发手册已开源，见上方「Vibe Coding 全栈开发技巧」。可独立安装的 AI Skills 文件尚未收录，此处预留位置。\n');
 await write('ARTICLES.md','# 文章归档\n\n[← 返回个人主页](./README.md)\n\n## 已收录\n\n| 文章 | 分类 | 日期 | 来源 |\n| --- | --- | --- | --- |\n'+articleTable+'\n\n## 待补充\n\n| 内容 | 状态 |\n| --- | --- |\n| 公众号历史文章 | 待提供标题与 mp.weixin.qq.com 原文链接 |\n| 其他随笔与长文 | 待提供标题、来源与链接 |\n\n没有取得的信息不补写日期或摘要。\n');
 await write('DOCUMENTS.md','# 知识文档\n\n[← 返回个人主页](./README.md)\n\n## 已收录\n\n- [即梦 AI 实测拆解报告]('+profile.works[1].url+') · 任务路径、截图证据与二次核验。\n- ['+qingyan.title+']('+qingyan.url+') · 需求取舍、版本范围与实验验收。\n\n## '+qingyan.title+'\n\n'+qingyan.description+'\n\n'+qingyan.sections.map(section=>'### '+section.title+'\n\n'+section.text).join('\n\n')+'\n\n[阅读完整文档]('+qingyan.url+') · [文档仓库]('+qingyan.repo+')\n\n## 待补充\n\n更多研究文档、产品规格与模板尚未提供。此处为预留位置。\n');
-await write('MAINTENANCE.md','# 维护主页\n\n内容在 `profile.json`，卡片布局与 Markdown 生成逻辑在 `scripts/build-profile.mjs`。\n\n```sh\nnpm ci\nnpm run build\n```\n\n头像素材 `assets/maxiao.png` 为站点主人选择的身份与画风参考，顶部欢迎卡沿用原图。卡片使用 SVG 文本与矢量图形排版，按主题内嵌 `assets/poses/` 中不同姿态的人物 PNG。生成提示词与卡片映射保存在 `assets/poses/manifest.json`。没有已确认内容的卡片明确标为待补充。\n\nGitHub 顶部卡片用原生 details/summary 展开 hi，网站保留原有点击动画。\n');
+await write('MAINTENANCE.md','# 维护主页\n\n内容在 `profile.json`，卡片布局与 Markdown 生成逻辑在 `scripts/build-profile.mjs`。\n\n```sh\nnpm ci\nnpm run build\n```\n\n头像素材 `assets/maxiao.png` 为站点主人选择的身份与画风参考，顶部欢迎卡沿用原图。卡片使用 SVG 文本与矢量图形排版，按主题内嵌 `assets/poses/` 中不同姿态的人物 PNG。生成提示词与卡片映射保存在 `assets/poses/manifest.json`。没有已确认内容的卡片明确标为待补充。\n\nGitHub 顶部卡片用 SVG 分层实现轻微起伏与挥手，每 6 秒循环；手腕的遮罩与重叠裁切按原始头像的 640 × 960 坐标定义。README 用 picture 根据减少动态效果偏好选择 hello-static.svg。原生 details/summary 仍负责点击展开 hi，网站保留原有点击动画。\n');
 console.log(`Generated ${cards.length} cards, hero, README and content indexes. Embedded character: ${avatar.length} bytes.`);
