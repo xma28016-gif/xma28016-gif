@@ -56,6 +56,13 @@
   <a href="https://xma28016-gif.github.io/second-brain/"><img width="49%" src="./assets/cards/second-brain.svg?v=second-brain-v1" alt="Second Brain · 企业第二大脑" /></a>
 </p>
 
+**RAG 中台 · 界面与操作实录**
+
+<p><a href="./PROJECTS.md#rag中台"><picture><source media="(prefers-reduced-motion: reduce)" srcset="./assets/previews/rag/poster.webp?v=rag-ui-v1" /><img width="1000" src="./assets/previews/rag/tour.gif?v=rag-ui-v1" alt="RAG 中台页面导览：工作台、知识库、文档与分块、助手、日志及引用" /></picture></a></p>
+<sub>本机测试环境实录：工作台 → 知识库 → 文档与分块 → 助手 → 运行日志 → 回答与引用。</sub>
+
+[查看六张界面截图](./PROJECTS.md#rag中台) · [开源代码](https://github.com/xma28016-gif/zhijing-rag)
+
 **Second Brain** · [在线演示](https://xma28016-gif.github.io/second-brain/) · [开源代码](https://github.com/xma28016-gif/second-brain)
 
 **心跳 heartbeat** · [在线体验](https://xma28016-gif.github.io/heartbeat/demo/) · [Mac 预览版下载](https://github.com/xma28016-gif/heartbeat/releases/tag/v0.2.1) · [开源代码](https://github.com/xma28016-gif/heartbeat)
@@ -151,4 +158,4 @@
 
 ---
 
-<sub>这里展示公开项目与已确认文章。标为“待补充”的卡片是预留位置；不会将它们计为完成成果。更新于 2026-11-15。</sub>
+<sub>这里展示公开项目与已确认文章。标为“待补充”的卡片是预留位置；不会将它们计为完成成果。更新于 2026-11-24。</sub>

@@ -72,7 +72,7 @@
       ]
     }
   ],
-  "reviewedAt": "2026-11-15",
+  "reviewedAt": "2026-11-24",
   "works": [
     {
       "id": "ctrip-hotel-subscription",
@@ -247,7 +247,7 @@
         "Next.js / FastAPI",
         "MIT 开源"
       ],
-      "updated": "2026-11-10",
+      "updated": "2026-11-24",
       "sections": [
         {
           "title": "文档入库与知识构建",
@@ -261,7 +261,45 @@
           "title": "实现与部署",
           "text": "前端使用 Next.js、React 和 TypeScript，后端使用 FastAPI、LangChain Core 与 Celery，配合 PostgreSQL、pgvector 和 Redis。仓库提供 Docker Compose 与 macOS 本机运行方式。当前免登录管理界面面向本机或可信测试环境。"
         }
-      ]
+      ],
+      "preview": {
+        "title": "RAG 中台页面导览：工作台、知识库、文档与分块、助手、日志及引用",
+        "tour": "./assets/previews/rag/tour.gif",
+        "poster": "./assets/previews/rag/poster.webp",
+        "caption": "本机测试环境实录：工作台 → 知识库 → 文档与分块 → 助手 → 运行日志 → 回答、引用与执行实录。点击截图可放大。",
+        "screens": [
+          {
+            "title": "工作台概览",
+            "file": "./assets/previews/rag/overview.webp",
+            "description": "查看知识资产、构建任务与问答趋势。"
+          },
+          {
+            "title": "知识库管理",
+            "file": "./assets/previews/rag/knowledge.webp",
+            "description": "进入知识库，查看文档和知识分块数量。"
+          },
+          {
+            "title": "文档分块预览",
+            "file": "./assets/previews/rag/chunks.webp",
+            "description": "检查分块正文、文件版本与原始页码。"
+          },
+          {
+            "title": "知识库助手",
+            "file": "./assets/previews/rag/assistants.webp",
+            "description": "查看已发布助手绑定的知识库、模型及回答规则。"
+          },
+          {
+            "title": "运行日志",
+            "file": "./assets/previews/rag/logs.webp",
+            "description": "查看已有问答的状态、用量与耗时。"
+          },
+          {
+            "title": "引用与执行实录",
+            "file": "./assets/previews/rag/trace.webp",
+            "description": "追溯引用文件及检索、重排、生成步骤。"
+          }
+        ]
+      }
     },
     {
       "id": "little-inventor",

@@ -118,6 +118,33 @@
 
 `RAG` `混合检索` `Next.js / FastAPI` `MIT 开源`
 
+### 界面与操作预览
+
+<p><a href="https://github.com/xma28016-gif/zhijing-rag"><picture><source media="(prefers-reduced-motion: reduce)" srcset="./assets/previews/rag/poster.webp?v=rag-ui-v1" /><img width="1000" src="./assets/previews/rag/tour.gif?v=rag-ui-v1" alt="RAG 中台页面导览：工作台、知识库、文档与分块、助手、日志及引用" /></picture></a></p>
+
+本机测试环境实录：工作台 → 知识库 → 文档与分块 → 助手 → 运行日志 → 回答、引用与执行实录。点击截图可放大。
+
+**工作台概览 / 知识库管理**
+
+<p>
+  <a href="./assets/previews/rag/overview.webp"><img width="49%" src="./assets/previews/rag/overview.webp?v=rag-ui-v1" alt="工作台概览：查看知识资产、构建任务与问答趋势。" /></a>
+  <a href="./assets/previews/rag/knowledge.webp"><img width="49%" src="./assets/previews/rag/knowledge.webp?v=rag-ui-v1" alt="知识库管理：进入知识库，查看文档和知识分块数量。" /></a>
+</p>
+
+**文档分块预览 / 知识库助手**
+
+<p>
+  <a href="./assets/previews/rag/chunks.webp"><img width="49%" src="./assets/previews/rag/chunks.webp?v=rag-ui-v1" alt="文档分块预览：检查分块正文、文件版本与原始页码。" /></a>
+  <a href="./assets/previews/rag/assistants.webp"><img width="49%" src="./assets/previews/rag/assistants.webp?v=rag-ui-v1" alt="知识库助手：查看已发布助手绑定的知识库、模型及回答规则。" /></a>
+</p>
+
+**运行日志 / 引用与执行实录**
+
+<p>
+  <a href="./assets/previews/rag/logs.webp"><img width="49%" src="./assets/previews/rag/logs.webp?v=rag-ui-v1" alt="运行日志：查看已有问答的状态、用量与耗时。" /></a>
+  <a href="./assets/previews/rag/trace.webp"><img width="49%" src="./assets/previews/rag/trace.webp?v=rag-ui-v1" alt="引用与执行实录：追溯引用文件及检索、重排、生成步骤。" /></a>
+</p>
+
 ### 文档入库与知识构建
 
 导入 PDF、Word、Excel、Markdown、CSV 和图片，检查解析结果、分块与来源位置，再异步构建索引。扫描件和复杂版式可按需配置 DocMind 增强解析。
