@@ -61,7 +61,7 @@ const cards = [
  {id:'article-placeholder',type:'文章 / PLACEHOLDER',title:['更多文章','待补充'],sub:'公众号历史文章 · 预留位置',tags:['等待标题与原文链接'],p:'lilac',prop:'placeholder',url:'./ARTICLES.md#待补充',alt:'更多公众号文章预留位，待补充'},
  {id:'doc-placeholder',type:'文档 / PLACEHOLDER',title:['更多知识文档','待补充'],sub:'文档、方法与模板 · 预留位置',tags:['内容整理中'],p:'sand',prop:'placeholder',url:'./DOCUMENTS.md#待补充',alt:'知识文档预留位，待补充'},
  {id:'skill-placeholder',type:'技能 / PLACEHOLDER',title:['公开 Skills','待补充'],sub:'可复用的工具包 · 预留位置',tags:['仅展示已公开内容'],p:'lilac',prop:'placeholder',url:'./SKILLS.md#公开-skills-预留位',alt:'公开 Skills 工具包预留位，待补充'},
- {id:'contact',type:'联系 / SAY HELLO',title:['下一个好想法','从你好开始'],sub:'产品研究 · 交互体验 · AI 探索',tags:['GitHub 交流','公众号阅读'],p:'blue',prop:'code',backdrop:false,url:'https://xma28016-gif.github.io/home.html#contact',alt:'与马骁交流，点击前往网站打招呼'}
+ {id:'contact',type:'联系 / SAY HELLO',title:['下一个好想法','从你好开始'],sub:'产品研究 · 交互体验 · AI 探索',tags:['GitHub 交流','公众号阅读'],p:'blue',prop:'code',backdrop:false,underline:false,url:'https://xma28016-gif.github.io/home.html#contact',alt:'与马骁交流，点击前往网站打招呼'}
 ];
 await fs.mkdir(new URL('assets/cards/',root),{recursive:true});
 for (const c of cards) {
@@ -78,7 +78,8 @@ for (const c of cards) {
  const tags=c.tags.map(t=>{const w=t.length*20+30;const tag=`<rect x="${x}" y="${chipsY-25}" width="${w}" height="38" rx="9" fill="${bg}"/><text x="${x+14}" y="${chipsY+1}" fill="${muted}" font-size="20" font-weight="550">${esc(t)}</text>`;x+=w+9;return tag;}).join('');
  const backdrop = c.backdrop === false ? '' : `<ellipse cx="985" cy="265" rx="235" ry="220" fill="url(#glow)"/>${prop(c.prop,accent)}`;
  const illustration = `<image href="${poseURI}" x="720" y="60" width="540" height="390" preserveAspectRatio="xMidYMin meet"/>`;
- const art=`${backdrop}${illustration}<text x="92" y="39" fill="${muted}" font-size="22" font-weight="650">${esc(c.type)}</text><path d="M60 ${lineY}q170 13 515-2" fill="none" stroke="#f4a15d" stroke-width="9" stroke-linecap="round"/>${text}<text x="60" y="${subY}" fill="#465668" font-size="28" font-weight="600">${esc(c.sub)}</text>${tags}`;
+ const underline = c.underline === false ? '' : `<path d="M60 ${lineY}q170 13 515-2" fill="none" stroke="#f4a15d" stroke-width="9" stroke-linecap="round"/>`;
+ const art=`${backdrop}${illustration}<text x="92" y="39" fill="${muted}" font-size="22" font-weight="650">${esc(c.type)}</text>${underline}${text}<text x="60" y="${subY}" fill="#465668" font-size="28" font-weight="600">${esc(c.sub)}</text>${tags}`;
  await write('assets/cards/'+c.id+'.svg',frame(1280,460,c.p,art,c.alt));
 }
 // Rig the existing transparent portrait in its original 640 × 960 coordinates.
@@ -109,7 +110,6 @@ const heroArt = `<text x="92" y="39" fill="#6d86af" font-size="20" font-weight="
  ${animatedAvatar}
  <text x="64" y="126" fill="#637b9b" font-size="18" class="mono" letter-spacing="2.3">MA XIAO · IDEAS INTO PRACTICE</text>
  <text x="60" y="215" fill="#17212f" font-size="74" font-weight="850" letter-spacing="-3">你好，我是马骁。</text>
- <path d="M64 237q235 11 590-1" fill="none" stroke="#f4a15d" stroke-width="8" stroke-linecap="round"/>
  <text x="64" y="298" fill="#52667e" font-size="27" font-weight="550">产品研究 · 交互实践 · 写作记录</text>`;
 await write('assets/hello.svg', frame(1280, 380, 'blue', heroArt, '马骁挥手欢迎你。点击卡片，和我打个招呼'));
 const stillHeroArt = heroArt.replace(animatedAvatar, `<image href="${avatarURI}" x="850" y="64" width="340" height="510"/>`);
@@ -170,7 +170,7 @@ const profileTagGroups = '<table align="center" width="100%">\n<tbody>\n' + prof
  `  <tr>\n    <th scope="row" width="72" align="left" valign="middle">${esc(group.title)}</th>\n    <td>\n${group.items.map(badgeImage).join('\n')}\n    </td>\n  </tr>`
 ).join('\n') + '\n</tbody>\n</table>';
 const readme=`<details>
-<summary><picture><source media="(prefers-reduced-motion: reduce)" srcset="./assets/hello-static.svg?v=hero-still-v1" /><img width="1000" src="./assets/hello.svg?v=hero-wave-v5" alt="马骁的个人空间：产品研究、交互实践与写作记录。点击和我打招呼。" /></picture></summary>
+<summary><picture><source media="(prefers-reduced-motion: reduce)" srcset="./assets/hello-static.svg?v=hero-still-v2" /><img width="1000" src="./assets/hello.svg?v=hero-wave-v6" alt="马骁的个人空间：产品研究、交互实践与写作记录。点击和我打招呼。" /></picture></summary>
 
 <h3 align="center">hi 👋，很高兴在这里遇见你。</h3>
 <p align="center">我是马骁，欢迎交流产品研究、交互体验与 AI 探索。</p>
@@ -249,7 +249,7 @@ ${articleTable}
 
 ## 👋 交流一下
 
-<p><a href="https://xma28016-gif.github.io/home.html#contact"><img width="1000" src="./assets/cards/contact.svg?v=character-only-v3" alt="下一个好想法，从你好开始。点击前往个人网站打个招呼。" /></a></p>
+<p><a href="https://xma28016-gif.github.io/home.html#contact"><img width="1000" src="./assets/cards/contact.svg?v=contact-clean-v4" alt="下一个好想法，从你好开始。点击前往个人网站打个招呼。" /></a></p>
 
 - **个人网站** · [xma28016-gif.github.io](https://xma28016-gif.github.io/)
 - **公众号** · [代码不再冷冰冰](https://mp.weixin.qq.com/s/jkrkeoMxSKqe4Bz1p6mLAQ)

@@ -1,5 +1,5 @@
 <details>
-<summary><picture><source media="(prefers-reduced-motion: reduce)" srcset="./assets/hello-static.svg?v=hero-still-v1" /><img width="1000" src="./assets/hello.svg?v=hero-wave-v5" alt="马骁的个人空间：产品研究、交互实践与写作记录。点击和我打招呼。" /></picture></summary>
+<summary><picture><source media="(prefers-reduced-motion: reduce)" srcset="./assets/hello-static.svg?v=hero-still-v2" /><img width="1000" src="./assets/hello.svg?v=hero-wave-v6" alt="马骁的个人空间：产品研究、交互实践与写作记录。点击和我打招呼。" /></picture></summary>
 
 <h3 align="center">hi 👋，很高兴在这里遇见你。</h3>
 <p align="center">我是马骁，欢迎交流产品研究、交互体验与 AI 探索。</p>
@@ -143,7 +143,7 @@
 
 ## 👋 交流一下
 
-<p><a href="https://xma28016-gif.github.io/home.html#contact"><img width="1000" src="./assets/cards/contact.svg?v=character-only-v3" alt="下一个好想法，从你好开始。点击前往个人网站打个招呼。" /></a></p>
+<p><a href="https://xma28016-gif.github.io/home.html#contact"><img width="1000" src="./assets/cards/contact.svg?v=contact-clean-v4" alt="下一个好想法，从你好开始。点击前往个人网站打个招呼。" /></a></p>
 
 - **个人网站** · [xma28016-gif.github.io](https://xma28016-gif.github.io/)
 - **公众号** · [代码不再冷冰冰](https://mp.weixin.qq.com/s/jkrkeoMxSKqe4Bz1p6mLAQ)
